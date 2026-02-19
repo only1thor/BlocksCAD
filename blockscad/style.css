@@ -544,3 +544,300 @@ input.search:focus {
     margin-right: auto;
     margin-left: auto;
 }
+
+/* ========================================
+   DARK MODE STYLES
+   ======================================== */
+
+/* Dark mode color variables */
+body.dark-mode {
+    --bg-primary: #1e1e1e;
+    --bg-secondary: #2d2d2d;
+    --bg-tertiary: #3d3d3d;
+    --text-primary: #e0e0e0;
+    --text-secondary: #b0b0b0;
+    --border-color: #555555;
+    --accent-color: #4a9eff;
+}
+
+/* Main container */
+body.dark-mode #main {
+    background: #1e1e1e;
+}
+
+body.dark-mode #paneContainer {
+    background-color: #2d2d2d;
+}
+
+/* Navigation bar */
+body.dark-mode .navbar-default {
+    background-color: #2d2d2d;
+    border-color: #444444;
+}
+
+body.dark-mode .navbar-default .navbar-brand,
+body.dark-mode .navbar-default .navbar-nav>li>a {
+    color: #e0e0e0;
+}
+
+body.dark-mode .navbar-default .navbar-nav>li>a:hover,
+body.dark-mode .navbar-default .navbar-nav>li>a:focus {
+    color: #ffffff;
+    background-color: #3d3d3d;
+}
+
+body.dark-mode .navbar-default .navbar-nav>.open>a,
+body.dark-mode .navbar-default .navbar-nav>.open>a:hover,
+body.dark-mode .navbar-default .navbar-nav>.open>a:focus {
+    background-color: #3d3d3d;
+    color: #ffffff;
+}
+
+/* Dropdown menus */
+body.dark-mode .dropdown-menu {
+    background-color: #2d2d2d;
+    border-color: #444444;
+}
+
+body.dark-mode .dropdown-menu>li>a {
+    color: #e0e0e0;
+}
+
+body.dark-mode .dropdown-menu>li>a:hover,
+body.dark-mode .dropdown-menu>li>a:focus {
+    background-color: #3d3d3d;
+    color: #ffffff;
+}
+
+body.dark-mode .dropdown-menu .divider {
+    background-color: #444444;
+}
+
+body.dark-mode .dropdown-menu .sub-menu {
+    background-color: #2d2d2d;
+    border-color: #444444;
+    border-left-color: #444444;
+}
+
+/* Buttons */
+body.dark-mode .btn-big {
+    color: #e0e0e0;
+}
+
+body.dark-mode .btn-big:hover {
+    color: #ffffff;
+}
+
+body.dark-mode .btn-default {
+    background-color: #3d3d3d;
+    border-color: #555555;
+    color: #e0e0e0;
+}
+
+body.dark-mode .btn-default:hover,
+body.dark-mode .btn-default:focus {
+    background-color: #4d4d4d;
+    border-color: #666666;
+    color: #ffffff;
+}
+
+/* Nav pills (tabs) */
+body.dark-mode .nav-pills>li>a {
+    color: #e0e0e0;
+}
+
+body.dark-mode .nav-pills>li>a:hover {
+    background-color: #3d3d3d;
+}
+
+body.dark-mode .nav-pills>li.active>a,
+body.dark-mode .nav-pills>li.active>a:hover,
+body.dark-mode .nav-pills>li.active>a:focus {
+    background-color: #3d3d3d;
+    color: #ffffff;
+}
+
+/* Resizable div (3D viewer container) */
+body.dark-mode .resizableDiv {
+    border-color: #555555;
+}
+
+/* Viewer buttons and controls */
+body.dark-mode #viewerButtons,
+body.dark-mode #viewerDefaults {
+    background-color: #2d2d2d;
+    border-color: #555555;
+}
+
+body.dark-mode #renderPane {
+    background-color: #2d2d2d;
+    border-color: #555555;
+    color: #e0e0e0;
+}
+
+/* jQuery UI widget content */
+body.dark-mode .ui-widget-content {
+    background: #3d5a3d;
+    border-color: #555555;
+    color: #e0e0e0;
+}
+
+/* Tables */
+body.dark-mode .table {
+    color: #e0e0e0;
+}
+
+body.dark-mode .table-striped>tbody>tr:nth-of-type(odd) {
+    background-color: #2a2a3d;
+}
+
+body.dark-mode .table-striped>tbody>tr:nth-of-type(even) {
+    background-color: #1e1e1e;
+}
+
+body.dark-mode table.sortable thead {
+    background-color: #3d3d3d;
+    color: #e0e0e0;
+}
+
+body.dark-mode th {
+    border-color: #555555;
+}
+
+body.dark-mode .table>tbody>tr>td {
+    border-color: #444444;
+}
+
+/* Modals */
+body.dark-mode .modal-content {
+    background-color: #2d2d2d;
+    border-color: #444444;
+    color: #e0e0e0;
+}
+
+body.dark-mode .modal-header {
+    border-bottom-color: #444444;
+}
+
+body.dark-mode .modal-footer {
+    border-top-color: #444444;
+}
+
+body.dark-mode .modal-title {
+    color: #ffffff;
+}
+
+body.dark-mode .close {
+    color: #e0e0e0;
+    opacity: 0.8;
+}
+
+body.dark-mode .close:hover {
+    color: #ffffff;
+    opacity: 1;
+}
+
+/* Form controls */
+body.dark-mode .form-control {
+    background-color: #3d3d3d;
+    border-color: #555555;
+    color: #e0e0e0;
+}
+
+body.dark-mode .form-control:focus {
+    border-color: #4a9eff;
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(74, 158, 255, 0.6);
+}
+
+body.dark-mode input.search {
+    background-color: #3d3d3d;
+    border-color: #555555;
+    color: #e0e0e0;
+}
+
+/* Spectrum color picker */
+body.dark-mode .sp-replacer {
+    background-color: #3d3d3d;
+    border-color: #555555;
+}
+
+body.dark-mode .sp-preview {
+    border-color: #777777;
+}
+
+/* Error messages - keep visible colors */
+body.dark-mode .error-message,
+body.dark-mode .form-error-message {
+    background-color: #a03030;
+    color: #ffffff;
+}
+
+/* Carets for submenus */
+body.dark-mode .right-caret:after {
+    border-left-color: #e0e0e0;
+}
+
+body.dark-mode .left-caret:after {
+    border-right-color: #e0e0e0;
+}
+
+/* Blockly toolbox and workspace - dark flyout */
+body.dark-mode .blocklyToolboxDiv {
+    background-color: #2d2d2d;
+}
+
+body.dark-mode .blocklyFlyoutBackground {
+    fill: #3d3d3d;
+}
+
+body.dark-mode .blocklyMainBackground {
+    fill: #1e1e1e;
+}
+
+body.dark-mode .blocklyTreeLabel {
+    color: #e0e0e0;
+}
+
+body.dark-mode .blocklyTreeRow:not(.blocklyTreeSelected):hover {
+    background-color: #3d3d3d;
+}
+
+/* Scrollbars for dark mode */
+body.dark-mode ::-webkit-scrollbar {
+    width: 12px;
+    height: 12px;
+}
+
+body.dark-mode ::-webkit-scrollbar-track {
+    background: #2d2d2d;
+}
+
+body.dark-mode ::-webkit-scrollbar-thumb {
+    background: #555555;
+    border-radius: 6px;
+}
+
+body.dark-mode ::-webkit-scrollbar-thumb:hover {
+    background: #666666;
+}
+
+/* Dark mode toggle button styling */
+#darkModeToggle {
+    cursor: pointer;
+}
+
+body.dark-mode #darkModeToggle .dark-mode-icon {
+    display: none;
+}
+
+body.dark-mode #darkModeToggle .light-mode-icon {
+    display: inline;
+}
+
+body:not(.dark-mode) #darkModeToggle .dark-mode-icon {
+    display: inline;
+}
+
+body:not(.dark-mode) #darkModeToggle .light-mode-icon {
+    display: none;
+}

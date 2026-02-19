@@ -71,6 +71,8 @@ output += '                  <li><a href="#" id="colors_one">' + Blockscad.Msg.C
 output += '                  <li><a href="#" id="colors_two">' + Blockscad.Msg.PALE_COLORS + '</a></li>\n';
 output += '                </ul>\n';
 output += '              </li>\n';
+output += '              <li class="divider"></li>\n';
+output += '              <li><a href="#" id="darkModeToggle"><span class="dark-mode-icon">Dark Mode</span><span class="light-mode-icon">Light Mode</span></a></li>\n';
 output += '            </ul>\n';
 output += '          </li>\n';
 output += '          <li class="dropdown">\n';

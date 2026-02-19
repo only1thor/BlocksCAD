@@ -320,6 +320,11 @@ Blockscad.init = function() {
     }
   });
 
+  // Dark mode toggle handler
+  $('#darkModeToggle').on('click', function() {
+    Blockscad.toggleDarkMode();
+  });
+
   // add "default color" picker to viewer
   // r,g,b is expecting to get color values between 0 and 255 for r,g,b
 
@@ -428,6 +433,8 @@ Blockscad.init = function() {
   if (Blockscad.showMessageModal)
     $('#outage-modal').modal('show');
 
+  // Initialize dark mode from saved preference
+  Blockscad.initDarkMode();
 
   setTimeout(Blockscad.typeWorkspace, 10);
 
@@ -992,6 +999,55 @@ Blockscad.setSaveNeeded = function(saveNeeded) {
     // console.log("setting needToSave to 0");
   }
 }
+
+// Dark mode functionality
+Blockscad.isDarkMode = false;
+
+Blockscad.toggleDarkMode = function() {
+  Blockscad.isDarkMode = !Blockscad.isDarkMode;
+  Blockscad.applyDarkMode(Blockscad.isDarkMode);
+  // Save preference to localStorage
+  localStorage.setItem('blockscadDarkMode', Blockscad.isDarkMode ? '1' : '0');
+};
+
+Blockscad.applyDarkMode = function(enabled) {
+  Blockscad.isDarkMode = enabled;
+  if (enabled) {
+    document.body.classList.add('dark-mode');
+    // Update WebGL viewer background if available
+    if (Blockscad.gProcessor && Blockscad.gProcessor.viewer) {
+      Blockscad.gProcessor.viewer.gl.clearColor(0.12, 0.12, 0.12, 1);
+      Blockscad.gProcessor.viewer.onDraw();
+    }
+    if (Blockscad.gProcessor && Blockscad.gProcessor.picviewer) {
+      Blockscad.gProcessor.picviewer.gl.clearColor(0.12, 0.12, 0.12, 1);
+    }
+    if (Blockscad.gProcessor && Blockscad.gProcessor.rpicviewer) {
+      Blockscad.gProcessor.rpicviewer.gl.clearColor(0.12, 0.12, 0.12, 1);
+    }
+  } else {
+    document.body.classList.remove('dark-mode');
+    // Reset WebGL viewer background to white
+    if (Blockscad.gProcessor && Blockscad.gProcessor.viewer) {
+      Blockscad.gProcessor.viewer.gl.clearColor(1, 1, 1, 1);
+      Blockscad.gProcessor.viewer.onDraw();
+    }
+    if (Blockscad.gProcessor && Blockscad.gProcessor.picviewer) {
+      Blockscad.gProcessor.picviewer.gl.clearColor(1, 1, 1, 1);
+    }
+    if (Blockscad.gProcessor && Blockscad.gProcessor.rpicviewer) {
+      Blockscad.gProcessor.rpicviewer.gl.clearColor(1, 1, 1, 1);
+    }
+  }
+};
+
+Blockscad.initDarkMode = function() {
+  // Check localStorage for saved preference
+  var savedPref = localStorage.getItem('blockscadDarkMode');
+  if (savedPref === '1') {
+    Blockscad.applyDarkMode(true);
+  }
+};
 
 Blockscad.clearProject = function() {
 
