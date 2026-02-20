@@ -9,9 +9,9 @@
    xmlns="http://www.w3.org/2000/svg"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   width="353mm"
+   width="373mm"
    height="74.702179mm"
-   viewBox="0 0 1250 264.69276"
+   viewBox="0 0 1320 264.69276"
    id="svg4208"
    version="1.1"
    inkscape:version="0.91 r13725"
@@ -258,7 +258,7 @@
          x="641.79846"
          y="455.7511">faces</tspan></text>
     <!-- Diameter version -->
-    <g id="g_diameter" transform="translate(636,0)">
+    <g id="g_diameter" transform="translate(700,0)">
       <path
          style="opacity:1;fill:none;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
          d="m 300.46440,434.73022 59.64646,0"
@@ -293,7 +293,7 @@
          transform="matrix(0.42216167,-0.1727109,0.1727109,0.42216167,60.730254,292.30797)" />
       <path
          style="opacity:1;fill:none;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
-         d="m 65.86085,437.73022 173.50002,0"
+         d="m 120,437.73022 119.36087,0"
          id="d_path_d1" />
       <ellipse
          ry="3.0157323"

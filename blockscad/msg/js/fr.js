@@ -211,7 +211,7 @@ Blockscad.Msg.TAPER_TOOLTIP = "Scales shape along an axis.  The smallest value a
 Blockscad.Msg.TEXT_DEFAULT_VALUE = "bonjour";
 Blockscad.Msg.TEXT_THICKNESS = "épaisseur";
 Blockscad.Msg.TORUS = "tore";
-Blockscad.Msg.TORUS_TOOLTIP = "<img src='imgs/fr/torus.svg' width='510px'>";
+Blockscad.Msg.TORUS_TOOLTIP = "<img src='imgs/fr/torus.svg' width='540px'>";
 Blockscad.Msg.TRANSLATE = "translation";
 Blockscad.Msg.TRANSLATE_TOOLTIP = "Translates (moves) one or more objects in specified dimensions x, y, and z.";
 Blockscad.Msg.TWIST = "torsion";
