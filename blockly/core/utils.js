@@ -108,6 +108,35 @@ Blockly.bindEvent_ = function(node, name, thisObject, func) {
   }
   node.addEventListener(name, wrapFunc, false);
   var bindData = [[node, name, wrapFunc]];
+
+  // Add equivalent pointer events for modern browsers (Chrome, Edge, etc.).
+  // Pointer events unify mouse, touch, and pen input.
+  if (name in Blockly.bindEvent_.POINTER_MAP) {
+    // Determine if we should call preventDefault().
+    // Only do this for SVG elements to avoid breaking HTML interactions (toolbox).
+    // Also allow it for document-level handlers (needed for drag release detection).
+    var isSvgElement = node instanceof SVGElement ||
+        (node.namespaceURI && node.namespaceURI.indexOf('svg') !== -1);
+    var isDocument = node === document || node === document.documentElement;
+
+    var pointerWrapFunc = function(e) {
+      // Only handle primary pointer (typically left mouse button or first touch).
+      if (e.isPrimary !== false) {
+        func.call(thisObject, e);
+        // Prevent default only on SVG elements to stop browser gesture handling,
+        // but not on document or HTML elements which need normal event flow.
+        if (isSvgElement) {
+          e.preventDefault();
+        }
+      }
+    };
+    for (var i = 0, eventName;
+         eventName = Blockly.bindEvent_.POINTER_MAP[name][i]; i++) {
+      node.addEventListener(eventName, pointerWrapFunc, false);
+      bindData.push([node, eventName, pointerWrapFunc]);
+    }
+  }
+
   // Add equivalent touch event.
   if (name in Blockly.bindEvent_.TOUCH_MAP) {
     wrapFunc = function(e) {
@@ -142,6 +171,21 @@ if (goog.events.BrowserFeature.TOUCH_ENABLED) {
     'mousedown': ['touchstart'],
     'mousemove': ['touchmove'],
     'mouseup': ['touchend', 'touchcancel']
+  };
+}
+
+/**
+ * The POINTER_MAP lookup dictionary specifies pointer events to fire,
+ * in conjunction with mouse events. Pointer events unify mouse, touch,
+ * and pen input in modern browsers (Chrome, Edge, etc.).
+ * @type {Object}
+ */
+Blockly.bindEvent_.POINTER_MAP = {};
+if (window.PointerEvent) {
+  Blockly.bindEvent_.POINTER_MAP = {
+    'mousedown': ['pointerdown'],
+    'mousemove': ['pointermove'],
+    'mouseup': ['pointerup', 'pointercancel']
   };
 }
 

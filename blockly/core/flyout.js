@@ -794,8 +794,10 @@ Blockly.Flyout.prototype.onMouseDown_ = function(e) {
 Blockly.Flyout.prototype.onMouseUp_ = function(e) {
   if (!this.workspace_.isDragging()) {
     if (this.autoClose) {
-      this.createBlockFunc_(Blockly.Flyout.startBlock_)(
-          Blockly.Flyout.startDownEvent_);
+      // Click without drag - insert block at workspace center.
+      // This provides an alternative to dragging for browsers where
+      // drag events may not work reliably (e.g., Chrome, Edge).
+      this.insertBlockAtWorkspaceCenter_(Blockly.Flyout.startBlock_);
     } else if (!Blockly.WidgetDiv.isVisible()) {
       Blockly.Events.fire(
           new Blockly.Events.Ui(Blockly.Flyout.startBlock_, 'click',
@@ -937,6 +939,64 @@ Blockly.Flyout.prototype.isDragTowardWorkspace_ = function(dx, dy) {
     }
   }
   return draggingTowardWorkspace;
+};
+
+/**
+ * Insert a copy of a flyout block at the center of the visible workspace.
+ * This is used for click-to-insert functionality as an alternative to dragging.
+ * @param {!Blockly.Block} originBlock The flyout block to copy.
+ * @private
+ */
+Blockly.Flyout.prototype.insertBlockAtWorkspaceCenter_ = function(originBlock) {
+  if (!originBlock || originBlock.disabled) {
+    return;
+  }
+
+  // Create the block
+  Blockly.Events.disable();
+  var block;
+  try {
+    block = this.placeNewBlock_(originBlock);
+  } finally {
+    Blockly.Events.enable();
+  }
+
+  // Fire creation event
+  if (Blockly.Events.isEnabled()) {
+    Blockly.Events.setGroup(true);
+    Blockly.Events.fire(new Blockly.Events.Create(block));
+  }
+
+  // Calculate center of visible workspace
+  var targetWorkspace = this.targetWorkspace_;
+  var metrics = targetWorkspace.getMetrics();
+  var scale = targetWorkspace.scale;
+
+  // Get the center point in workspace coordinates
+  var centerX = (metrics.viewLeft + metrics.viewWidth / 2) / scale;
+  var centerY = (metrics.viewTop + metrics.viewHeight / 2) / scale;
+
+  // Get block's current position and size
+  var blockXY = block.getRelativeToSurfaceXY();
+  var blockBounds = block.getHeightWidth();
+
+  // Move block to center (offset by half the block dimensions to truly center it)
+  block.moveBy(
+    centerX - blockXY.x - blockBounds.width / 2,
+    centerY - blockXY.y - blockBounds.height / 2
+  );
+
+  // Close flyout if autoClose, otherwise update capacity filter
+  if (this.autoClose) {
+    this.hide();
+  } else {
+    this.filterForCapacity_();
+  }
+
+  // End event group
+  if (Blockly.Events.isEnabled()) {
+    Blockly.Events.setGroup(false);
+  }
 };
 
 /**

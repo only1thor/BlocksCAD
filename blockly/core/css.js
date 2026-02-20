@@ -135,6 +135,7 @@ Blockly.Css.CONTENT = [
     'background-color: #fff;',
     'outline: none;',
     'overflow: hidden;',  /* IE overflows by default. */
+    'touch-action: none;',  /* Prevent browser gesture handling for drag compatibility. */
   '}',
 
   '.blocklyWidgetDiv {',
@@ -366,6 +367,15 @@ Blockly.Css.CONTENT = [
   '.blocklyFlyoutBackground {',
   '  fill: #ddd;',
   '  fill-opacity: .8;',
+  '}',
+
+  /*
+   * Prevent browser from intercepting drag gestures on flyout blocks.
+   * This is critical for Chrome/Edge compatibility where pointer events
+   * may be captured for scrolling/zooming instead of block dragging.
+   */
+  '.blocklyFlyout {',
+  '  touch-action: none;',
   '}',
 
   '.blocklyColourBackground {',

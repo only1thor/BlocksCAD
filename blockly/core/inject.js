@@ -323,6 +323,10 @@ Blockly.inject.bindDocumentEvents_ = function() {
     // corresponding touch handler that would squeltch the ability to interact
     // with non-Blockly elements.
     document.addEventListener('mouseup', Blockly.onMouseUp_, false);
+    // Add pointerup for modern browsers (Chrome, Edge) that use Pointer Events.
+    if (window.PointerEvent) {
+      document.addEventListener('pointerup', Blockly.onMouseUp_, false);
+    }
     // Some iPad versions don't fire resize after portrait to landscape change.
     if (goog.userAgent.IPAD) {
       Blockly.bindEvent_(window, 'orientationchange', document, function() {
