@@ -10,7 +10,10 @@ Blockly.Blocks['sphere'] = {
         .appendField(Blockscad.Msg.SPHERE + "  ");
     this.appendValueInput("RAD")
         .setCheck("Number")
-        .appendField(Blockscad.Msg.RADIUS)
+        .appendField(new Blockly.FieldDropdown([
+          [Blockscad.Msg.RADIUS, 'radius'],
+          [Blockscad.Msg.DIAMETER, 'diameter']
+        ]), 'MEASURE')
         .setAlign(Blockly.ALIGN_RIGHT);
     this.setInputsInline(true);
     this.setPreviousStatement(true, 'CSG');
@@ -56,10 +59,14 @@ Blockly.Blocks['cylinder'] = {
     this.setHelpUrl('http://www.example.com/');
     this.setColour(Blockscad.Toolbox.HEX_3D_PRIMITIVE);
     this.appendDummyInput()
-        .appendField(Blockscad.Msg.CYLINDER + '  ');
+        .appendField(Blockscad.Msg.CYLINDER + '  ')
+        .appendField(new Blockly.FieldDropdown([
+          [Blockscad.Msg.RADIUS, 'radius'],
+          [Blockscad.Msg.DIAMETER, 'diameter']
+        ], this.updateLabels_.bind(this)), 'MEASURE');
     this.appendValueInput('RAD1')
-        .setCheck('Number')    
-        .appendField(Blockscad.Msg.RADIUS + '1')
+        .setCheck('Number')
+        .appendField(Blockscad.Msg.RADIUS + '1', 'LABEL1')
         .setAlign(Blockly.ALIGN_RIGHT);
     // handle backwards compatibility for cylinders created before locking.
     if (Blockscad.inputVersion == null || Blockscad.inputVersion == "1.0.0"
@@ -73,14 +80,14 @@ Blockly.Blocks['cylinder'] = {
       this.appendDummyInput()
           .setAlign(Blockly.ALIGN_RIGHT)
           .appendField(new Blockly.FieldCheckbox("TRUE", null,
-            "imgs/lock_icon.png","imgs/unlock_icon.png"), "LOCKED") ;    
+            "imgs/lock_icon.png","imgs/unlock_icon.png"), "LOCKED") ;
     }
     // this.appendDummyInput()
     //     .setAlign(Blockly.ALIGN_RIGHT)
-    //     .appendField(new Blockly.FieldCheckbox("TRUE", null), "CHECK") ; 
+    //     .appendField(new Blockly.FieldCheckbox("TRUE", null), "CHECK") ;
     this.appendValueInput('RAD2')
         .setCheck('Number')
-        .appendField(Blockscad.Msg.RADIUS + '2')
+        .appendField(Blockscad.Msg.RADIUS + '2', 'LABEL2')
         .setAlign(Blockly.ALIGN_RIGHT);
     this.appendValueInput('HEIGHT')
         .setCheck('Number')
@@ -91,6 +98,14 @@ Blockly.Blocks['cylinder'] = {
     this.setInputsInline(true);
     this.setPreviousStatement(true, 'CSG');
     this.setTooltip(Blockscad.Msg.CYLINDER_TOOLTIP);
+  },
+  updateLabels_: function(newValue) {
+    var label = (newValue === 'diameter') ? Blockscad.Msg.DIAMETER : Blockscad.Msg.RADIUS;
+    var label1Field = this.getField('LABEL1');
+    var label2Field = this.getField('LABEL2');
+    if (label1Field) label1Field.setText(label + '1');
+    if (label2Field) label2Field.setText(label + '2');
+    return newValue;
   },
   updateRadii: function() {
     if (!this.workspace) {
@@ -142,8 +157,11 @@ Blockly.Blocks['simple_cylinder'] = {
     this.appendDummyInput()
         .appendField(Blockscad.Msg.CYLINDER + '  ');
     this.appendValueInput('RAD1')
-        .setCheck('Number')    
-        .appendField(Blockscad.Msg.RADIUS)
+        .setCheck('Number')
+        .appendField(new Blockly.FieldDropdown([
+          [Blockscad.Msg.RADIUS, 'radius'],
+          [Blockscad.Msg.DIAMETER, 'diameter']
+        ]), 'MEASURE')
         .setAlign(Blockly.ALIGN_RIGHT);
     this.appendValueInput('HEIGHT')
         .setCheck('Number')
@@ -204,14 +222,18 @@ Blockly.Blocks['torus'] = {
     this.setHelpUrl('http://www.example.com/');
     this.setColour(Blockscad.Toolbox.HEX_3D_PRIMITIVE);
     this.appendDummyInput()
-        .appendField(Blockscad.Msg.TORUS + '  ');
+        .appendField(Blockscad.Msg.TORUS + '  ')
+        .appendField(new Blockly.FieldDropdown([
+          [Blockscad.Msg.RADIUS, 'radius'],
+          [Blockscad.Msg.DIAMETER, 'diameter']
+        ], this.updateLabels_.bind(this)), 'MEASURE');
     this.appendValueInput('RAD1')
-        .setCheck('Number')    
-        .appendField( Blockscad.Msg.RADIUS + '1')
+        .setCheck('Number')
+        .appendField(Blockscad.Msg.RADIUS + '1', 'LABEL1')
         .setAlign(Blockly.ALIGN_RIGHT);
     this.appendValueInput('RAD2')
         .setCheck('Number')
-        .appendField(Blockscad.Msg.RADIUS + '2')
+        .appendField(Blockscad.Msg.RADIUS + '2', 'LABEL2')
         .setAlign(Blockly.ALIGN_RIGHT);
     this.appendValueInput('SIDES')
         .setCheck('Number')
@@ -224,6 +246,14 @@ Blockly.Blocks['torus'] = {
     this.setInputsInline(true);
     this.setPreviousStatement(true, 'CSG');
     this.setTooltip(Blockscad.Msg.TORUS_TOOLTIP);
+  },
+  updateLabels_: function(newValue) {
+    var label = (newValue === 'diameter') ? Blockscad.Msg.DIAMETER : Blockscad.Msg.RADIUS;
+    var label1Field = this.getField('LABEL1');
+    var label2Field = this.getField('LABEL2');
+    if (label1Field) label1Field.setText(label + '1');
+    if (label2Field) label2Field.setText(label + '2');
+    return newValue;
   }//,
   // onchange: function() {
   //   if (!this.workspace) {
@@ -248,14 +278,18 @@ Blockly.Blocks['twistytorus'] = {
     this.setHelpUrl('http://www.example.com/');
     this.setColour(Blockscad.Toolbox.HEX_3D_PRIMITIVE);
     this.appendDummyInput()
-        .appendField('Twisty Torus  ');
+        .appendField('Twisty Torus  ')
+        .appendField(new Blockly.FieldDropdown([
+          [Blockscad.Msg.RADIUS, 'radius'],
+          [Blockscad.Msg.DIAMETER, 'diameter']
+        ], this.updateLabels_.bind(this)), 'MEASURE');
     this.appendValueInput('RAD1')
-        .setCheck('Number')    
-        .appendField('ring radius')
+        .setCheck('Number')
+        .appendField('ring ' + Blockscad.Msg.RADIUS, 'LABEL1')
         .setAlign(Blockly.ALIGN_RIGHT);
     this.appendValueInput('RAD2')
         .setCheck('Number')
-        .appendField('cross-section radius')
+        .appendField('cross-section ' + Blockscad.Msg.RADIUS, 'LABEL2')
         .setAlign(Blockly.ALIGN_RIGHT);
     this.appendValueInput('SIDES')
         .setCheck('Number')
@@ -272,6 +306,14 @@ Blockly.Blocks['twistytorus'] = {
     this.setInputsInline(true);
     this.setPreviousStatement(true, 'CSG');
     this.setTooltip('Creates a torus with a ring of specified distance on-center from the origin (radius1), with a specified radius (radius2), a specified number of sides and faces. The "twist" is in degrees, and should be used with caution');
+  },
+  updateLabels_: function(newValue) {
+    var label = (newValue === 'diameter') ? Blockscad.Msg.DIAMETER : Blockscad.Msg.RADIUS;
+    var label1Field = this.getField('LABEL1');
+    var label2Field = this.getField('LABEL2');
+    if (label1Field) label1Field.setText('ring ' + label);
+    if (label2Field) label2Field.setText('cross-section ' + label);
+    return newValue;
   }//,
   // onchange: function() {
   //   if (!this.workspace) {
@@ -299,7 +341,10 @@ Blockly.Blocks['circle'] = {
         .appendField(Blockscad.Msg.CIRCLE + '   ');
     this.appendValueInput('RAD')
         .setCheck('Number')
-        .appendField(Blockscad.Msg.RADIUS)
+        .appendField(new Blockly.FieldDropdown([
+          [Blockscad.Msg.RADIUS, 'radius'],
+          [Blockscad.Msg.DIAMETER, 'diameter']
+        ]), 'MEASURE')
         .setAlign(Blockly.ALIGN_RIGHT);
     this.setInputsInline(true);
     this.setPreviousStatement(true, 'CAG');

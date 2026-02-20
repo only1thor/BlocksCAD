@@ -162,6 +162,7 @@ Blockscad.Msg.PROJECT_MENU = "Project";
 Blockscad.Msg.PROJECT_NAME = "Project Name";
 Blockscad.Msg.PROJECT_NAME_DEFAULT = "Untitled";
 Blockscad.Msg.RADIUS = "radius";
+Blockscad.Msg.DIAMETER = "diameter";
 Blockscad.Msg.REACTIVATE_ACCOUNT_EXPLAINED = "Your account has been reactivated - it is no longer scheduled to be deleted.  If you didn't send a delete account request, you should change your password to make sure your account is secure.";
 Blockscad.Msg.REACTIVATE_ACCOUNT_TITLE = "Your account will not be deleted";
 Blockscad.Msg.REACTIVATE_BUTTON = "Okay";

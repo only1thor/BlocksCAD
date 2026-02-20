@@ -188,6 +188,8 @@ Blockscad.Msg.PARSE_IN_PROGRESS = 'Parsing...';
 Blockscad.Msg.SPHERE = 'sphere';
 /// Radius - the distance from the center of a circle or sphere to its edge
 Blockscad.Msg.RADIUS = 'radius';
+/// Diameter - the distance across a circle or sphere through its center
+Blockscad.Msg.DIAMETER = 'diameter';
 /// Centered - property of a shape which makes it centered at the origin (where X, Y, Z axes intersect)
 Blockscad.Msg.CENTERED = 'centered';
 /// Not Centered - property of a shape which is not centered along one or more axes
