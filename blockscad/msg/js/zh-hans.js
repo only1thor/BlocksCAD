@@ -162,6 +162,7 @@ Blockscad.Msg.PROJECT_MENU = "项目菜单";
 Blockscad.Msg.PROJECT_NAME = "项目名称";
 Blockscad.Msg.PROJECT_NAME_DEFAULT = "Untitled";
 Blockscad.Msg.RADIUS = "球半径";
+Blockscad.Msg.DIAMETER = "直径";
 Blockscad.Msg.REACTIVATE_ACCOUNT_EXPLAINED = "你的账户已再次激活，不会被删除。如果你没有提出国删除请求，请更改你的密码以保证你的账户安全。";
 Blockscad.Msg.REACTIVATE_ACCOUNT_TITLE = "你的账户将不会被删除";
 Blockscad.Msg.REACTIVATE_BUTTON = "操作成功";

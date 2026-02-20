@@ -162,6 +162,7 @@ Blockscad.Msg.PROJECT_MENU = "Projekti";
 Blockscad.Msg.PROJECT_NAME = "Ime projekta";
 Blockscad.Msg.PROJECT_NAME_DEFAULT = "brez_imena";
 Blockscad.Msg.RADIUS = "polmer";
+Blockscad.Msg.DIAMETER = "premer";
 Blockscad.Msg.REACTIVATE_ACCOUNT_EXPLAINED = "Tvoj uporabniški račun je bil reaktiviran - ne bo več izbrisan. V kolikor nisi sam sprožil proces brisanja, menjaj nemudoma tvoje geslo.";
 Blockscad.Msg.REACTIVATE_ACCOUNT_TITLE = "Tvoj uproabniški račun ne bo izbrisan.";
 Blockscad.Msg.REACTIVATE_BUTTON = "Vredu";

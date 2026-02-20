@@ -162,6 +162,7 @@ Blockscad.Msg.PROJECT_MENU = "Projet";
 Blockscad.Msg.PROJECT_NAME = "Nom du projet";
 Blockscad.Msg.PROJECT_NAME_DEFAULT = "Sans Nom";
 Blockscad.Msg.RADIUS = "rayon";
+Blockscad.Msg.DIAMETER = "diamètre";
 Blockscad.Msg.REACTIVATE_ACCOUNT_EXPLAINED = "Votre compte a été réactivé - il est plus programmé pour être supprimé.  Si vous ne demandez pas d'avoir votre compte supprimé, vous devriez changer votre mot de passe pour vous assurer que votre compte est sécurisé.";
 Blockscad.Msg.REACTIVATE_ACCOUNT_TITLE = "Votre compte ne sera pas supprimé";
 Blockscad.Msg.REACTIVATE_BUTTON = "D'accord";

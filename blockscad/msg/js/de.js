@@ -162,6 +162,7 @@ Blockscad.Msg.PROJECT_MENU = "Projekte";
 Blockscad.Msg.PROJECT_NAME = "Projekt Name";
 Blockscad.Msg.PROJECT_NAME_DEFAULT = "Unbenannt";
 Blockscad.Msg.RADIUS = "radius";
+Blockscad.Msg.DIAMETER = "durchmesser";
 Blockscad.Msg.REACTIVATE_ACCOUNT_EXPLAINED = "Dein Benutzerkonto wurde reaktiviert - es wird nicht mehr gelöscht. Falls du den Löschantrag nicht selber erstellt hast, solltest du dein Passwort ändern um sicherzugehen dass dein Benutzerkonto sicher bleibt.";
 Blockscad.Msg.REACTIVATE_ACCOUNT_TITLE = "Dein Benutzerkonto wird nicht gelöscht";
 Blockscad.Msg.REACTIVATE_BUTTON = "Okay";

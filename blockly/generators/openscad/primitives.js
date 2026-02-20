@@ -16,7 +16,11 @@ Blockly.OpenSCAD['sphere'] = function(block) {
     Blockscad.illegalValue.push(block.inputList[1].connection.targetBlock().id);
   }
 
-  var code = 'sphere(' + 'r=' + value_rad + ');';
+  // Check if block is in diameter mode and convert to radius
+  var useDiameter = block.getFieldValue('MEASURE') === 'diameter';
+  var radiusValue = useDiameter ? '(' + value_rad + ') / 2' : value_rad;
+
+  var code = 'sphere(r=' + radiusValue + ');';
   return code;
 };
 
@@ -53,7 +57,12 @@ Blockly.OpenSCAD['cylinder'] = function(block) {
   if (value_height && value_height <= 0) 
     Blockscad.illegalValue.push(block.inputList[4].connection.targetBlock().id);
 
-  var code = 'cylinder(' + 'r1=' + value_rad1 + ', r2=' + value_rad2 + ', h=' + value_height +', center=' + dropdown_center + ');';
+  // Check if block is in diameter mode and convert to radius
+  var useDiameter = block.getFieldValue('MEASURE') === 'diameter';
+  var radius1 = useDiameter ? '(' + value_rad1 + ') / 2' : value_rad1;
+  var radius2 = useDiameter ? '(' + value_rad2 + ') / 2' : value_rad2;
+
+  var code = 'cylinder(r1=' + radius1 + ', r2=' + radius2 + ', h=' + value_height +', center=' + dropdown_center + ');';
   return code;
 };
 
@@ -71,7 +80,11 @@ Blockly.OpenSCAD['simple_cylinder'] = function(block) {
   if (value_height && value_height <= 0) 
     Blockscad.illegalValue.push(block.inputList[3].connection.targetBlock().id);
 
-  var code = 'cylinder(' + 'r=' + value_rad1 + ', h=' + value_height +', center=' + dropdown_center + ');';
+  // Check if block is in diameter mode and convert to radius
+  var useDiameter = block.getFieldValue('MEASURE') === 'diameter';
+  var radiusValue = useDiameter ? '(' + value_rad1 + ') / 2' : value_rad1;
+
+  var code = 'cylinder(r=' + radiusValue + ', h=' + value_height +', center=' + dropdown_center + ');';
   return code;
 };
 
@@ -115,8 +128,13 @@ Blockly.OpenSCAD['torus'] = function(block) {
   if (value_sides<3) value_sides = 3;
   if (value_faces<3) value_faces = 3;
 
-  var code = '// torus \nrotate_extrude($fn=' + value_sides + ') {\n  translate([' + value_rad1;
-  code += ', 0, 0]) {\n    circle(r=' + value_rad2 + ', $fn=' + value_faces + ');\n  }\n}';
+  // Check if block is in diameter mode and convert to radius
+  var useDiameter = block.getFieldValue('MEASURE') === 'diameter';
+  var ringRadius = useDiameter ? '(' + value_rad1 + ') / 2' : value_rad1;
+  var tubeRadius = useDiameter ? '(' + value_rad2 + ') / 2' : value_rad2;
+
+  var code = '// torus \nrotate_extrude($fn=' + value_sides + ') {\n  translate([' + ringRadius;
+  code += ', 0, 0]) {\n    circle(r=' + tubeRadius + ', $fn=' + value_faces + ');\n  }\n}';
   return code;
 };
 Blockly.OpenSCAD['twistytorus'] = function(block) {
@@ -143,9 +161,14 @@ Blockly.OpenSCAD['twistytorus'] = function(block) {
   if (value_sides<3) value_sides = 3;
   if (value_faces<3) value_faces = 3;
 
+  // Check if block is in diameter mode and convert to radius
+  var useDiameter = block.getFieldValue('MEASURE') === 'diameter';
+  var ringRadius = useDiameter ? '(' + value_rad1 + ') / 2' : value_rad1;
+  var tubeRadius = useDiameter ? '(' + value_rad2 + ') / 2' : value_rad2;
+
   var code = '// torus \n'
-  code += 'rotate_extrude($fn=' + value_sides + ',twist=' + value_twist + ') {\n  translate([' + value_rad1;
-  code += ', 0, 0]) {\n    circle(r=' + value_rad2 + ', $fn=' + value_faces + ');\n  }\n}';
+  code += 'rotate_extrude($fn=' + value_sides + ',twist=' + value_twist + ') {\n  translate([' + ringRadius;
+  code += ', 0, 0]) {\n    circle(r=' + tubeRadius + ', $fn=' + value_faces + ');\n  }\n}';
   return code;
 };
 
@@ -574,7 +597,11 @@ Blockly.OpenSCAD['circle'] = function(block) {
   if (value_rad && value_rad <= 0) {
     Blockscad.illegalValue.push(block.inputList[1].connection.targetBlock().id);
   }
-  var code = 'circle(' + 'r=' + value_rad + ');';
+  // Check if block is in diameter mode and convert to radius
+  var useDiameter = block.getFieldValue('MEASURE') === 'diameter';
+  var radiusValue = useDiameter ? '(' + value_rad + ') / 2' : value_rad;
+
+  var code = 'circle(r=' + radiusValue + ');';
   return code;
 };
 
