@@ -223,7 +223,13 @@ Blockscad.init = function() {
 
     var codeForOutput = Blockscad.processCodeForOutput(code);
 
-    content.textContent = codeForOutput;
+    // Apply syntax highlighting using highlight.js
+    if (typeof hljs !== 'undefined') {
+      var highlighted = hljs.highlight(codeForOutput, {language: 'openscad'});
+      content.innerHTML = highlighted.value;
+    } else {
+      content.textContent = codeForOutput;
+    }
     Blockly.svgResize(Blockscad.workspace);
   });
 

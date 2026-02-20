@@ -292,6 +292,20 @@ html, body {
   visibility: visible;
 }
 
+/* OpenSCAD code preview styling */
+#openScadPre {
+  background-color: #fafafa;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 0;
+  margin: 0;
+  overflow: auto;
+}
+
+#openScadPre.hljs {
+  padding: 1em;
+}
+
 .dropdown-toggle {
 	font-size: 16px;
 }
@@ -709,9 +723,65 @@ body.dark-mode #render-type {
 
 /* Code view (OpenSCAD pre block) */
 body.dark-mode #openScadPre {
-    background-color: #1e1e1e;
+    background-color: #282c34;
     border-color: #444444;
-    color: #e0e0e0;
+    color: #abb2bf;
+}
+
+/* Highlight.js dark mode token colors (Atom One Dark) */
+body.dark-mode #openScadPre.hljs {
+    background: #282c34;
+    color: #abb2bf;
+}
+body.dark-mode .hljs-comment,
+body.dark-mode .hljs-quote {
+    color: #5c6370;
+    font-style: italic;
+}
+body.dark-mode .hljs-doctag,
+body.dark-mode .hljs-formula,
+body.dark-mode .hljs-keyword {
+    color: #c678dd;
+}
+body.dark-mode .hljs-deletion,
+body.dark-mode .hljs-name,
+body.dark-mode .hljs-section,
+body.dark-mode .hljs-selector-tag,
+body.dark-mode .hljs-subst {
+    color: #e06c75;
+}
+body.dark-mode .hljs-literal {
+    color: #56b6c2;
+}
+body.dark-mode .hljs-addition,
+body.dark-mode .hljs-attribute,
+body.dark-mode .hljs-meta .hljs-string,
+body.dark-mode .hljs-regexp,
+body.dark-mode .hljs-string {
+    color: #98c379;
+}
+body.dark-mode .hljs-attr,
+body.dark-mode .hljs-number,
+body.dark-mode .hljs-selector-attr,
+body.dark-mode .hljs-selector-class,
+body.dark-mode .hljs-selector-pseudo,
+body.dark-mode .hljs-template-variable,
+body.dark-mode .hljs-type,
+body.dark-mode .hljs-variable {
+    color: #d19a66;
+}
+body.dark-mode .hljs-bullet,
+body.dark-mode .hljs-link,
+body.dark-mode .hljs-meta,
+body.dark-mode .hljs-selector-id,
+body.dark-mode .hljs-symbol,
+body.dark-mode .hljs-title {
+    color: #61aeee;
+}
+body.dark-mode .hljs-built_in,
+body.dark-mode .hljs-class .hljs-title,
+body.dark-mode .hljs-title.class_ {
+    color: #e6c07b;
 }
 
 /* Resizable div (3D viewer container) */
