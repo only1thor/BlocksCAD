@@ -40,8 +40,14 @@ BlocklyStorage.standaloneRestoreBlocks = function() {
 BlocklyStorage.backupBlocks_ = function() {
   // console.log("in backupBlocks");
   if ('localStorage' in window) {
+    // Preserve dark mode setting before clearing localStorage
+    var darkModeSetting = localStorage.getItem('blockscadDarkMode');
     // clear out old stuff from localStorage
     localStorage.clear();
+    // Restore dark mode setting
+    if (darkModeSetting !== null) {
+      localStorage.setItem('blockscadDarkMode', darkModeSetting);
+    }
     var xml = Blockly.Xml.workspaceToDom(Blockscad.workspace);
     // Gets the current URL, not including the hash.
     var url = window.location.href.split('#')[0];
