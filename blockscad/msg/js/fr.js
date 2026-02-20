@@ -40,7 +40,7 @@ Blockscad.Msg.CHANGE_EMAIL_NEW = "Nouveau e-mail";
 Blockscad.Msg.CHANGE_PASSWORD = "Changer le mot de passe";
 Blockscad.Msg.CHANGE_PASSWORD_INSTRUCTIONS = "Après avoir changé votre mot de passe, vous serez invité à vous reconnecter à nouveau.";
 Blockscad.Msg.CIRCLE = "cercle";
-Blockscad.Msg.CIRCLE_TOOLTIP = "<img src='imgs/en/circle.svg' width='65'>";
+Blockscad.Msg.CIRCLE_TOOLTIP = "<img src='imgs/en/circle.svg' width='140'>";
 Blockscad.Msg.CLASSIC_COLORS = "Standard";
 Blockscad.Msg.CODE_TAB = "Code";
 Blockscad.Msg.COLOR = "couleur";
@@ -58,7 +58,7 @@ Blockscad.Msg.CONVEX_HULL = "coque";
 Blockscad.Msg.CUBE = "cube";
 Blockscad.Msg.CUBE_TOOLTIP = "<img src='imgs/en/cube.svg' width='100px'>";
 Blockscad.Msg.CYLINDER = "cylindre";
-Blockscad.Msg.CYLINDER_TOOLTIP = "<img src='imgs/en/cylinder.svg' width='90px'>";
+Blockscad.Msg.CYLINDER_TOOLTIP = "<img src='imgs/en/cylinder.svg' width='190px'>";
 Blockscad.Msg.DEFAULT_COLOR_BUTTON = "Set default render color";  // untranslated
 Blockscad.Msg.DELETE_ACCOUNT = "Supprimer mon compte";
 Blockscad.Msg.DELETE_ACCOUNT_BUTTON = "Supprimer le compte et Se déconnecter";
@@ -202,7 +202,7 @@ Blockscad.Msg.SIMPLEMIRROR_TOOLTIP = "Mirrors one or more objects across a speci
 Blockscad.Msg.SIMPLEROTATE_TOOLTIP = "Rotates one or more objects around specified axes x, y, and z.";
 Blockscad.Msg.SIMPLE_TOOLBOX = "Boîte à outils avancé";
 Blockscad.Msg.SPHERE = "sphère";
-Blockscad.Msg.SPHERE_TOOLTIP = "<img src='imgs/en/sphere.svg' width='65'>";
+Blockscad.Msg.SPHERE_TOOLTIP = "<img src='imgs/en/sphere.svg' width='140'>";
 Blockscad.Msg.SQUARE = "carré";
 Blockscad.Msg.SQUARE_TOOLTIP = "<img src='imgs/en/square.svg' width='65'>";
 Blockscad.Msg.STL_IMPORT_WARNING = "STL files are not saved with your blocks.";
@@ -211,7 +211,7 @@ Blockscad.Msg.TAPER_TOOLTIP = "Scales shape along an axis.  The smallest value a
 Blockscad.Msg.TEXT_DEFAULT_VALUE = "bonjour";
 Blockscad.Msg.TEXT_THICKNESS = "épaisseur";
 Blockscad.Msg.TORUS = "tore";
-Blockscad.Msg.TORUS_TOOLTIP = "<img src='imgs/fr/torus.svg' width='250px'>";
+Blockscad.Msg.TORUS_TOOLTIP = "<img src='imgs/fr/torus.svg' width='510px'>";
 Blockscad.Msg.TRANSLATE = "translation";
 Blockscad.Msg.TRANSLATE_TOOLTIP = "Translates (moves) one or more objects in specified dimensions x, y, and z.";
 Blockscad.Msg.TWIST = "torsion";

@@ -409,20 +409,20 @@ Blockscad.Msg.PARSING_ERROR_ILLEGAL_VALUE = '%1 blocks have an illegal value (ne
 // Block tooltips
 /// Tooltip for the sphere block: Creates a sphere with the specified radius.
 /// to translate the image, make a folder for it in the imgs folder an copy the english images there.  Then either edit the images with an SVG editor like Inkscape, or (not as good) you can use a text editor and search for the "text" tags and replace it.
-Blockscad.Msg.SPHERE_TOOLTIP = '<img src="imgs/en/sphere.svg" width="65">';
+Blockscad.Msg.SPHERE_TOOLTIP = '<img src="imgs/en/sphere.svg" width="140">';
 /// Tooltip for the cube block: Creates a rectangular prism with specified dimensions x, y, and z. A non-centered cube has one corner at the origin.
 /// to translate the image, make a folder for it in the imgs folder an copy the english images there.  Then either edit the images with an SVG editor like Inkscape, or (not as good) you can use a text editor and search for the "text" tags and replace it.
 Blockscad.Msg.CUBE_TOOLTIP = '<img src="imgs/en/cube.svg" width="100px">';
 /// Tooltip for the cylinder block.  Creates a cylinder with a specified bottom radius, top radius, and height. It may optionally be centered along the Z-axis.
 /// to translate the image, make a folder for it in the imgs folder an copy the english images there.  Then either edit the images with an SVG editor like Inkscape, or (not as good) you can use a text editor and search for the "text" tags and replace it.
 // Blockscad.Msg.CYLINDER_TOOLTIP = '<object type="image/svg+xml" data="imgs/en/cylinder.svg" width="90px"></object>';
-Blockscad.Msg.CYLINDER_TOOLTIP = '<img src="imgs/en/cylinder.svg" width="90px">';
+Blockscad.Msg.CYLINDER_TOOLTIP = '<img src="imgs/en/cylinder.svg" width="190px">';
 /// Tooltip for the torus block. Creates a torus with a ring of specified distance on-center from the origin (radius1), with a specified radius (radius2), a specified number of sides and faces.
 /// to translate the image, make a folder for it in the imgs folder an copy the english images there.  Then either edit the images with an SVG editor like Inkscape, or (not as good) you can use a text editor and search for the "text" tags and replace it.
-Blockscad.Msg.TORUS_TOOLTIP = '<img src="imgs/en/torus.svg" width="250px">';
+Blockscad.Msg.TORUS_TOOLTIP = '<img src="imgs/en/torus.svg" width="510px">';
 /// tooltip for the 2D circle block: Creates a circle with the specified radius.
 /// to translate the image, make a folder for it in the imgs folder an copy the english images there.  Then either edit the images with an SVG editor like Inkscape, or (not as good) you can use a text editor and search for the "text" tags and replace it.
-Blockscad.Msg.CIRCLE_TOOLTIP = '<img src="imgs/en/circle.svg" width="65">';
+Blockscad.Msg.CIRCLE_TOOLTIP = '<img src="imgs/en/circle.svg" width="140">';
 /// tooltip for the 2D square block: Creates a rectangle of specified dimensions x and y. It may optionally be centered around the origin.
 /// to translate the image, make a folder for it in the imgs folder an copy the english images there.  Then either edit the images with an SVG editor like Inkscape, or (not as good) you can use a text editor and search for the "text" tags and replace it.
 Blockscad.Msg.SQUARE_TOOLTIP = '<img src="imgs/en/square.svg" width="65">';

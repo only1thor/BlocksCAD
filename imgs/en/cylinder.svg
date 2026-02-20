@@ -9,9 +9,9 @@
    xmlns="http://www.w3.org/2000/svg"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   width="42.582111mm"
+   width="90mm"
    height="35.235577mm"
-   viewBox="0 0 150.88149 124.85047"
+   viewBox="0 0 320 124.85047"
    id="svg2"
    version="1.1"
    inkscape:version="0.91 r13725"
@@ -168,5 +168,84 @@
          x="158.51176"
          y="606.32587"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:sans-serif;-inkscape-font-specification:sans-serif">h</tspan></text>
+    <!-- Diameter version -->
+    <g id="g_diameter" transform="translate(170,0)">
+      <path
+         style="opacity:1;fill:none;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+         id="d_arc_bottom"
+         d="m 312.04776,631.20435 a 64.684158,14.571707 0 0 1 -32.34208,12.61946 64.684158,14.571707 0 0 1 -64.68416,0 64.684158,14.571707 0 0 1 -32.34208,-12.61946" />
+      <ellipse
+         ry="14.571707"
+         rx="64.684158"
+         cy="558.70123"
+         cx="247.3636"
+         id="d_ellipse_top"
+         style="opacity:1;fill:none;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+      <path
+         style="opacity:1;fill:none;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+         d="m 182.67944,631.20435 0,-72.50312"
+         id="d_side_left" />
+      <path
+         style="opacity:1;fill:none;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+         d="m 312.04776,631.20435 0,-72.50312"
+         id="d_side_right" />
+      <path
+         d="m 312.04776,-631.20435 a 64.684158,14.571707 0 0 1 -32.34208,12.61947 64.684158,14.571707 0 0 1 -64.68416,0 64.684158,14.571707 0 0 1 -32.34208,-12.61947"
+         id="d_arc_back"
+         style="opacity:1;fill:none;fill-opacity:1;fill-rule:evenodd;stroke:#999999;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:1, 6;stroke-dashoffset:0;stroke-opacity:1"
+         transform="scale(1,-1)" />
+      <ellipse
+         ry="3.0157323"
+         rx="2.7644215"
+         cy="631.20435"
+         cx="247.3636"
+         id="d_dot_bottom"
+         style="opacity:1;fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:27.68268204px;line-height:125%;font-family:sans-serif;-inkscape-font-specification:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         x="267.6785"
+         y="626.5592"
+         id="d_text_d1"><tspan
+           id="d_tspan_d1"
+           x="267.6785"
+           y="626.5592"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:sans-serif;-inkscape-font-specification:sans-serif">d1</tspan></text>
+      <path
+         id="d_line_d1"
+         d="m 182.67944,631.20435 129.36832,0"
+         style="opacity:1;fill:none;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+      <ellipse
+         style="opacity:1;fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+         id="d_dot_top"
+         cx="247.3636"
+         cy="558.70123"
+         rx="2.7644215"
+         ry="3.0157323" />
+      <text
+         id="d_text_d2"
+         y="541.97223"
+         x="265.25894"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:27.68268204px;line-height:125%;font-family:sans-serif;-inkscape-font-specification:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         xml:space="preserve"><tspan
+           y="541.97223"
+           x="265.25894"
+           id="d_tspan_d2"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:sans-serif;-inkscape-font-specification:sans-serif">d2</tspan></text>
+      <path
+         style="opacity:1;fill:none;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+         d="m 182.67944,558.70123 129.36832,0"
+         id="d_line_d2" />
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:35px;line-height:125%;font-family:sans-serif;-inkscape-font-specification:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         x="158.51176"
+         y="606.32587"
+         id="d_text_h"><tspan
+           id="d_tspan_h"
+           x="158.51176"
+           y="606.32587"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:sans-serif;-inkscape-font-specification:sans-serif">h</tspan></text>
+    </g>
   </g>
 </svg>
