@@ -40,7 +40,7 @@ Blockscad.Msg.CHANGE_EMAIL_NEW = "Neue E-Mail";
 Blockscad.Msg.CHANGE_PASSWORD = "Password ändern";
 Blockscad.Msg.CHANGE_PASSWORD_INSTRUCTIONS = "Nach der Passwortänderung musst du dich erneut anmelden.";
 Blockscad.Msg.CIRCLE = "kreis";
-Blockscad.Msg.CIRCLE_TOOLTIP = "<img src='imgs/en/circle.svg' width='65'>";
+Blockscad.Msg.CIRCLE_TOOLTIP = "<img src='imgs/en/circle.svg' width='140'>";
 Blockscad.Msg.CLASSIC_COLORS = "Klassisch";
 Blockscad.Msg.CODE_TAB = "Code";
 Blockscad.Msg.COLOR = "farbe";
@@ -58,7 +58,7 @@ Blockscad.Msg.CONVEX_HULL = "hülle";
 Blockscad.Msg.CUBE = "würfel";
 Blockscad.Msg.CUBE_TOOLTIP = "<img src='imgs/en/cube.svg' width='100px'>";
 Blockscad.Msg.CYLINDER = "zylinder";
-Blockscad.Msg.CYLINDER_TOOLTIP = "<img src='imgs/en/cylinder.svg' width='90px'>";
+Blockscad.Msg.CYLINDER_TOOLTIP = "<img src='imgs/en/cylinder.svg' width='190px'>";
 Blockscad.Msg.DEFAULT_COLOR_BUTTON = "Set default render color";  // untranslated
 Blockscad.Msg.DELETE_ACCOUNT = "Benutzerkonto löschen";
 Blockscad.Msg.DELETE_ACCOUNT_BUTTON = "Lösche dein Benutzerkonto und melde dich ab";
@@ -202,7 +202,7 @@ Blockscad.Msg.SIMPLEMIRROR_TOOLTIP = "Spiegelt eines oder mehrere Objekte entlan
 Blockscad.Msg.SIMPLEROTATE_TOOLTIP = "Rotiert (dreht) eines oder mehrere Objekte um die X-, Y- und Z-Achse.";
 Blockscad.Msg.SIMPLE_TOOLBOX = "Einfache Toolbox";
 Blockscad.Msg.SPHERE = "kugel";
-Blockscad.Msg.SPHERE_TOOLTIP = "<img src='imgs/en/sphere.svg' width='65'>";
+Blockscad.Msg.SPHERE_TOOLTIP = "<img src='imgs/en/sphere.svg' width='140'>";
 Blockscad.Msg.SQUARE = "quadrat";
 Blockscad.Msg.SQUARE_TOOLTIP = "<img src='imgs/en/square.svg' width='65'>";
 Blockscad.Msg.STL_IMPORT_WARNING = "STL Dateien werden nicht mit deinen Blöcken gespeichert.";
@@ -211,7 +211,7 @@ Blockscad.Msg.TAPER_TOOLTIP = "Skaliert ein Objekt entlang einer Achse um einen 
 Blockscad.Msg.TEXT_DEFAULT_VALUE = "text ersetzten";
 Blockscad.Msg.TEXT_THICKNESS = "dicke";
 Blockscad.Msg.TORUS = "ring";
-Blockscad.Msg.TORUS_TOOLTIP = "<img src='imgs/de/torus.svg' width='250px'>";
+Blockscad.Msg.TORUS_TOOLTIP = "<img src='imgs/de/torus.svg' width='510px'>";
 Blockscad.Msg.TRANSLATE = "verschieben";
 Blockscad.Msg.TRANSLATE_TOOLTIP = "Verschiebt eines oder mehrere Objekte in der X-, Y- und Z-Ebene.";
 Blockscad.Msg.TWIST = "verdrehen";

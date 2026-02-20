@@ -40,7 +40,7 @@ Blockscad.Msg.CHANGE_EMAIL_NEW = "Novi e-naslov";
 Blockscad.Msg.CHANGE_PASSWORD = "Spremeni geslo";
 Blockscad.Msg.CHANGE_PASSWORD_INSTRUCTIONS = "Po spremembi gesla se moraš ponovno prijavit.";
 Blockscad.Msg.CIRCLE = "Krog";
-Blockscad.Msg.CIRCLE_TOOLTIP = "<img src='imgs/en/circle.svg' width='65'>";
+Blockscad.Msg.CIRCLE_TOOLTIP = "<img src='imgs/en/circle.svg' width='140'>";
 Blockscad.Msg.CLASSIC_COLORS = "Privzeta";
 Blockscad.Msg.CODE_TAB = "Koda";
 Blockscad.Msg.COLOR = "Barva";
@@ -58,7 +58,7 @@ Blockscad.Msg.CONVEX_HULL = "Membrana";
 Blockscad.Msg.CUBE = "Kvader";
 Blockscad.Msg.CUBE_TOOLTIP = "<img src='imgs/en/cube.svg' width='100px'>";
 Blockscad.Msg.CYLINDER = "Valj";
-Blockscad.Msg.CYLINDER_TOOLTIP = "<img src='imgs/en/cylinder.svg' width='90px'>";
+Blockscad.Msg.CYLINDER_TOOLTIP = "<img src='imgs/en/cylinder.svg' width='190px'>";
 Blockscad.Msg.DEFAULT_COLOR_BUTTON = "Set default render color";  // untranslated
 Blockscad.Msg.DELETE_ACCOUNT = "Izbriši uprobniški račun";
 Blockscad.Msg.DELETE_ACCOUNT_BUTTON = "Izbriši tvoj uporabniški račun ter se odjavi.";
@@ -202,7 +202,7 @@ Blockscad.Msg.SIMPLEMIRROR_TOOLTIP = "Zdrcali enega ali več objektov preko izbr
 Blockscad.Msg.SIMPLEROTATE_TOOLTIP = "Rotira (zavrti) enega ali več objekov okrog X, Y in Z osi.";
 Blockscad.Msg.SIMPLE_TOOLBOX = "Preprosta orodna vrstica";
 Blockscad.Msg.SPHERE = "Krogla";
-Blockscad.Msg.SPHERE_TOOLTIP = "<img src='imgs/en/sphere.svg' width='65'>";
+Blockscad.Msg.SPHERE_TOOLTIP = "<img src='imgs/en/sphere.svg' width='140'>";
 Blockscad.Msg.SQUARE = "Kvadrat";
 Blockscad.Msg.SQUARE_TOOLTIP = "<img src='imgs/en/square.svg' width='65'>";
 Blockscad.Msg.STL_IMPORT_WARNING = "STL datoteke ne bodo shranjene z tvojimi bloki.";
@@ -211,7 +211,7 @@ Blockscad.Msg.TAPER_TOOLTIP = "Priseka (skaliera) objekt po eni osi za določen 
 Blockscad.Msg.TEXT_DEFAULT_VALUE = "Moj BlocksCAD";
 Blockscad.Msg.TEXT_THICKNESS = "debelina";
 Blockscad.Msg.TORUS = "Torus";
-Blockscad.Msg.TORUS_TOOLTIP = "<img src='imgs/sl/torus.svg' width='250px'>";
+Blockscad.Msg.TORUS_TOOLTIP = "<img src='imgs/sl/torus.svg' width='510px'>";
 Blockscad.Msg.TRANSLATE = "Premakni";
 Blockscad.Msg.TRANSLATE_TOOLTIP = "Premakne enega ali več objektov po X, Y in Z osi.";
 Blockscad.Msg.TWIST = "zvij";
