@@ -37,11 +37,32 @@ BlocksCAD/
 └── package.json         # NPM configuration
 ```
 
+## Development Environment (NixOS)
+
+This project uses Nix flakes for reproducible development environments. On NixOS, use the flake to access dev tools:
+
+```bash
+# Enter dev shell (interactive)
+nix develop
+
+# Run a single command with dev tools
+nix develop -c npm run lint
+nix develop -c npm install
+nix develop -c node some-script.js
+
+# Available tools in the dev shell:
+# - nodejs_20, npm
+# - jshint (linting)
+# - openscad (for testing generated code)
+```
+
+**Important:** Always use `nix develop -c <command>` to run tooling commands, as npm/node may not be available system-wide on NixOS.
+
 ## Build/Lint/Test Commands
 
 ### Linting
 ```bash
-npm run lint  # Lint blockly + blockscad directories (uses JSHint)
+nix develop -c npm run lint  # Lint blockly + blockscad directories (uses JSHint)
 ```
 
 ### Building
