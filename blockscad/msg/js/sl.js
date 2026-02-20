@@ -211,7 +211,7 @@ Blockscad.Msg.TAPER_TOOLTIP = "Priseka (skaliera) objekt po eni osi za določen 
 Blockscad.Msg.TEXT_DEFAULT_VALUE = "Moj BlocksCAD";
 Blockscad.Msg.TEXT_THICKNESS = "debelina";
 Blockscad.Msg.TORUS = "Torus";
-Blockscad.Msg.TORUS_TOOLTIP = "<img src='imgs/sl/torus.svg' width='510px'>";
+Blockscad.Msg.TORUS_TOOLTIP = "<img src='imgs/sl/torus.svg' width='540px'>";
 Blockscad.Msg.TRANSLATE = "Premakni";
 Blockscad.Msg.TRANSLATE_TOOLTIP = "Premakne enega ali več objektov po X, Y in Z osi.";
 Blockscad.Msg.TWIST = "zvij";

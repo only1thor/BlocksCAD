@@ -211,7 +211,7 @@ Blockscad.Msg.TAPER_TOOLTIP = "将实体沿坐标轴缩放。最小缩放值为1
 Blockscad.Msg.TEXT_DEFAULT_VALUE = "abc";
 Blockscad.Msg.TEXT_THICKNESS = "加粗";
 Blockscad.Msg.TORUS = "圆环体";
-Blockscad.Msg.TORUS_TOOLTIP = "<img src='imgs/en/torus.svg' width='510px'>";
+Blockscad.Msg.TORUS_TOOLTIP = "<img src='imgs/en/torus.svg' width='540px'>";
 Blockscad.Msg.TRANSLATE = "移动模型";
 Blockscad.Msg.TRANSLATE_TOOLTIP = "将一个或多个实体按指定坐标x,y,z移动.";
 Blockscad.Msg.TWIST = "扭曲";

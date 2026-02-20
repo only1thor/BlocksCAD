@@ -211,7 +211,7 @@ Blockscad.Msg.TAPER_TOOLTIP = "Skaliert ein Objekt entlang einer Achse um einen 
 Blockscad.Msg.TEXT_DEFAULT_VALUE = "text ersetzten";
 Blockscad.Msg.TEXT_THICKNESS = "dicke";
 Blockscad.Msg.TORUS = "ring";
-Blockscad.Msg.TORUS_TOOLTIP = "<img src='imgs/de/torus.svg' width='510px'>";
+Blockscad.Msg.TORUS_TOOLTIP = "<img src='imgs/de/torus.svg' width='540px'>";
 Blockscad.Msg.TRANSLATE = "verschieben";
 Blockscad.Msg.TRANSLATE_TOOLTIP = "Verschiebt eines oder mehrere Objekte in der X-, Y- und Z-Ebene.";
 Blockscad.Msg.TWIST = "verdrehen";
