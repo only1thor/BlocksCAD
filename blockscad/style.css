@@ -292,18 +292,64 @@ html, body {
   visibility: visible;
 }
 
-/* OpenSCAD code preview styling */
-#openScadPre {
-  background-color: #fafafa;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-  padding: 0;
-  margin: 0;
-  overflow: auto;
+/* Code editor pane */
+#codeEditorPane {
+  display: flex;
+  flex-direction: column;
+  padding: 0 !important;
 }
 
-#openScadPre.hljs {
-  padding: 1em;
+#codeEditorToolbar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 6px 12px;
+  background-color: #f5f5f5;
+  border-bottom: 1px solid #ddd;
+  flex-shrink: 0;
+  z-index: 1;
+}
+
+#codeEditorToolbar #applyCodeBtn {
+  white-space: nowrap;
+}
+
+#codeEditorStatus {
+  font-size: 13px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+#codeEditorStatus.error {
+  color: #d9534f;
+  font-weight: bold;
+}
+
+#codeEditorStatus.success {
+  color: #5cb85c;
+}
+
+#codeEditorStatus.modified {
+  color: #f0ad4e;
+}
+
+#codeEditorDiv {
+  flex: 1;
+  overflow: hidden;
+  min-height: 0;
+}
+
+#codeEditorDiv .cm-editor {
+  height: 100%;
+}
+
+#codeEditorFallback {
+  flex: 1;
+  min-height: 0;
+  background: #fff;
+  color: #333;
+  tab-size: 2;
 }
 
 .dropdown-toggle {
@@ -721,18 +767,35 @@ body.dark-mode #render-type {
     color: #e0e0e0 !important;
 }
 
-/* Code view (OpenSCAD pre block) */
-body.dark-mode #openScadPre {
-    background-color: #282c34;
-    border-color: #444444;
-    color: #abb2bf;
+/* Code editor dark mode */
+body.dark-mode #codeEditorToolbar {
+    background-color: #21252b;
+    border-bottom-color: #3e4452;
 }
 
-/* Highlight.js dark mode token colors (Atom One Dark) */
-body.dark-mode #openScadPre.hljs {
+body.dark-mode #codeEditorStatus.error {
+    color: #e06c75;
+}
+
+body.dark-mode #codeEditorStatus.success {
+    color: #98c379;
+}
+
+body.dark-mode #codeEditorStatus.modified {
+    color: #e5c07b;
+}
+
+body.dark-mode #codeEditorFallback {
     background: #282c34;
     color: #abb2bf;
 }
+
+body.dark-mode #applyCodeBtn {
+    background-color: #3b5998;
+    border-color: #2d4373;
+}
+
+/* Highlight.js dark mode token colors (kept for any remaining hljs usage) */
 body.dark-mode .hljs-comment,
 body.dark-mode .hljs-quote {
     color: #5c6370;
