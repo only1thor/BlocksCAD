@@ -111,7 +111,7 @@ Blockscad.init = function() {
           minScale: 0.3,
           scaleSpeed: 1.2},
        trashcan: false,
-       toolbox: Blockscad.Toolbox.adv});
+       toolbox: Blockscad.Toolbox.sim});
 
   // Listen to events on blocksCAD workspace.
   Blockscad.workspace.addChangeListener(Blockscad.handleWorkspaceEvents);
@@ -120,8 +120,15 @@ Blockscad.init = function() {
   Blockscad.Toolbox.setColorScheme(Blockscad.Toolbox.colorScheme['one']);
   // color the initial toolbox
   Blockscad.Toolbox.setCatColors();
-  // hide "switch to advanced toolbox" because that's where we'll start
-  $('#advancedToolbox').addClass('hidden');
+  // activate simple toolbox by default
+  $('#simpleToolbox').addClass('hidden');
+  $('#advancedToolbox').removeClass('hidden');
+  // switch to simple toolbox on startup
+  if (Blockscad.workspace) {
+    Blockscad.Toolbox.catIDs = [];
+    Blockscad.workspace.updateToolbox(Blockscad.Toolbox.sim);
+    Blockscad.Toolbox.setCatColors();
+  }
 
 
 
