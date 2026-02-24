@@ -209,32 +209,98 @@ Blockscad.init = function() {
   });
   
 
-  // code tab original code - uncomment this when you're done with parser testing
-  // can I bind a click to a tab?
+  // Initialize CodeMirror editor if available
+  if (typeof BlockscadEditor !== 'undefined' && BlockscadEditor.init) {
+    BlockscadEditor.init();
+  }
+
+  // code tab - update editor with current block code
   $( '#displayCode' ).click(  function() {
-    var content = document.getElementById('openScadPre');
     var code = Blockly.OpenSCAD.workspaceToCode(Blockscad.workspace);
-
-    // code has been run off the blocks.  It hasn't been sent to the parser yet.  It is openscad code.
-
-    // I want to keep the currint openscad code but hack the assigns.
-
-
-
     var codeForOutput = Blockscad.processCodeForOutput(code);
 
-    // Apply syntax highlighting using highlight.js
-    if (typeof hljs !== 'undefined') {
-      var highlighted = hljs.highlight(codeForOutput, {language: 'openscad'});
-      content.innerHTML = highlighted.value;
+    // Update the CodeMirror editor if available, otherwise use fallback textarea
+    if (typeof BlockscadEditor !== 'undefined' && BlockscadEditor.isReady && BlockscadEditor.isReady()) {
+      BlockscadEditor.setValue(codeForOutput);
+      BlockscadEditor.markClean();
     } else {
-      content.textContent = codeForOutput;
+      // Use fallback textarea
+      var fallback = document.getElementById('codeEditorFallback');
+      if (fallback) {
+        fallback.style.display = 'block';
+        fallback.value = codeForOutput;
+        // Hide the empty CM div
+        var cmDiv = document.getElementById('codeEditorDiv');
+        if (cmDiv) cmDiv.style.display = 'none';
+      }
     }
     Blockly.svgResize(Blockscad.workspace);
   });
 
+  // Apply Code to Blocks button - reverse sync from code editor to workspace
+  $( '#applyCodeBtn' ).click(function() {
+    if (typeof BlockscadOpenscadToBlocks === 'undefined') {
+      console.error('OpenSCAD to Blocks converter not loaded');
+      return;
+    }
+
+    // Get code from CodeMirror or fallback textarea
+    var code;
+    var statusEl = document.getElementById('codeEditorStatus');
+    var hasCM = typeof BlockscadEditor !== 'undefined' && BlockscadEditor.isReady && BlockscadEditor.isReady();
+    if (hasCM) {
+      code = BlockscadEditor.getValue();
+    } else {
+      var fallback = document.getElementById('codeEditorFallback');
+      code = fallback ? fallback.value : '';
+    }
+
+    if (!code || !code.trim()) {
+      if (hasCM) BlockscadEditor.showError('No code to apply.');
+      else if (statusEl) { statusEl.textContent = 'No code to apply.'; statusEl.className = 'error'; }
+      return;
+    }
+
+    // Confirm before replacing existing blocks
+    var blockCount = Blockscad.workspace.getAllBlocks().length;
+    if (blockCount > 0) {
+      if (!confirm('This will replace all existing blocks. Continue?')) return;
+    }
+
+    var result = BlockscadOpenscadToBlocks.convert(code);
+
+    if (!result.success) {
+      var errMsg = 'Parse error';
+      if (result.errors && result.errors.length > 0) {
+        errMsg = result.errors.map(function(e) {
+          return 'Line ' + e.line + ': ' + e.message;
+        }).join('; ');
+      }
+      if (hasCM) BlockscadEditor.showError(errMsg);
+      else if (statusEl) { statusEl.textContent = errMsg; statusEl.className = 'error'; }
+      return;
+    }
+
+    try {
+      Blockscad.workspace.clear();
+      var xml = Blockly.Xml.textToDom(result.xml);
+      Blockly.Xml.domToWorkspace(xml, Blockscad.workspace);
+      Blockscad.assignBlockTypes(Blockscad.workspace.getTopBlocks());
+      if (hasCM) {
+        BlockscadEditor.markClean();
+        BlockscadEditor.showSuccess('Blocks updated successfully.');
+      } else if (statusEl) {
+        statusEl.textContent = 'Blocks updated successfully.';
+        statusEl.className = 'success';
+      }
+    } catch (e) {
+      if (hasCM) BlockscadEditor.showError('Failed to load blocks: ' + e.message);
+      else if (statusEl) { statusEl.textContent = 'Failed to load blocks: ' + e.message; statusEl.className = 'error'; }
+    }
+  });
+
   // I think the render button should start out disabled.
-  // $('#renderButton').prop('disabled', true); 
+  // $('#renderButton').prop('disabled', true);
 
   // handle the project->new menu option
   $('#main').on('click', '.new-project', Blockscad.newProject);

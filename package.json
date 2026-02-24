@@ -5,7 +5,9 @@
   "main": "app://blockscad/index.html",
   "chromium-args": "--data-path='data/' --enable-webgl --ignore-gpu-blacklist",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "node test/test-parser.js",
+    "build:cm6": "esbuild blockscad/cm6-entry.js --bundle --format=iife --outfile=blockscad/cm6-bundle.js --minify",
+    "build": "npm run build:cm6 && npm test",
     "lint": "node_modules/.bin/jshint blockly blockscad",
     "build-standalone": "node build-standalone.js",
     "clean-standalone": "rm -rf node_modules build"
@@ -28,6 +30,15 @@
   },
   "license": "GPL-3.0+",
   "devDependencies": {
+    "@codemirror/autocomplete": "^6.20.0",
+    "@codemirror/commands": "^6.10.2",
+    "@codemirror/language": "^6.12.1",
+    "@codemirror/lint": "^6.9.4",
+    "@codemirror/search": "^6.6.0",
+    "@codemirror/state": "^6.5.4",
+    "@codemirror/view": "^6.39.15",
+    "@lezer/highlight": "^1.2.3",
+    "esbuild": "^0.27.3",
     "jshint": "^2.8.0",
     "nw-builder": "^2.0.2"
   }
