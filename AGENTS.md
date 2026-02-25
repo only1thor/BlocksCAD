@@ -1,179 +1,53 @@
-# AGENTS.md - BlocksCAD Codebase Guide
+# AGENTS.md - BlocksCAD
 
-This document provides guidance for AI coding agents working in the BlocksCAD codebase.
+## What It Is
 
-## Project Overview
+Browser-based visual 3D CAD tool. Blockly (custom fork) for block programming, OpenJSCAD for CSG rendering. jQuery 1.11, Bootstrap 3, Google Closure.
 
-BlocksCAD is a visual programming tool for 3D CAD design built with JavaScript. It uses Google's Blockly library (customized fork) for visual block programming and OpenJSCAD for CSG rendering.
-
-**Key Technologies:**
-- JavaScript (browser-based, client-side)
-- Google Blockly (visual programming)
-- OpenJSCAD (3D rendering)
-- Bootstrap 3.3.4 / jQuery 1.11.3
-- Google Closure Library
-
-## Project Structure
+## Structure
 
 ```
-BlocksCAD/
-├── blockscad/           # Main application code
-│   ├── blockscad.js     # Main application logic
-│   ├── utils.js         # Utility functions (BSUtils)
-│   ├── storage.js       # LocalStorage/cloud storage
-│   ├── toolbox.js       # Toolbox configuration
-│   └── msg/             # BlocksCAD i18n messages
-├── blockly/             # Google Blockly library (customized fork)
-│   ├── blocks/          # Block definitions
-│   ├── generators/      # Code generators
-│   │   └── openscad/    # OpenSCAD-specific generators
-│   ├── msg/             # Blockly i18n messages
-│   └── tests/           # JSUnit tests
-├── openscad-openjscad-translator/  # OpenSCAD parser (submodule)
-│   ├── src/             # Parser source files
-│   └── tests/           # Parser tests
-├── closure-library/     # Google Closure Library
-├── index.html           # Main entry point
-└── package.json         # NPM configuration
+blockscad/
+  blockscad.js        # Init orchestrator (~526 lines), namespace setup
+  toolbox.js          # Namespace stub (module-replaced)
+  app-bundle.js       # ES module bundle (esbuild, auto-generated)
+  cm6-bundle.js       # CodeMirror 6 bundle (auto-generated)
+  src/
+    main-entry.js     # ES module entry — wires modules onto window.Blockscad
+    config.js          dark-mode.js       pictures.js
+    projects.js        file-io.js         typing.js
+    rendering.js       code-output.js     global-interface.js
+    toolbox/
+      block-defs.js    xml-builder.js     color-schemes.js    index.js
+blockly/              # Blockly fork — DO NOT modify
+  blocks/             # Block definitions (reference Blockscad.Toolbox.HEX_*)
+  generators/openscad/
+index.html            # 33 script tags + app-bundle.js last
 ```
 
-## Development Environment (NixOS)
-
-This project uses Nix flakes for reproducible development environments. On NixOS, use the flake to access dev tools:
+## Build
 
 ```bash
-# Enter dev shell (interactive)
-nix develop
-
-# Run a single command with dev tools
-nix develop -c npm run lint
-nix develop -c npm install
-nix develop -c node some-script.js
-
-# Available tools in the dev shell:
-# - nodejs_20, npm
-# - jshint (linting)
-# - openscad (for testing generated code)
+nix develop -c npm run build     # build:cm6 + build:app + test (209 tests)
+nix develop -c npm run build:app # just the ES module bundle
 ```
 
-**Important:** Always use `nix develop -c <command>` to run tooling commands, as npm/node may not be available system-wide on NixOS.
+On non-NixOS: `npm run build` directly.
 
-## Build/Lint/Test Commands
+## Architecture
 
-### Linting
-```bash
-nix develop -c npm run lint  # Lint blockly + blockscad directories (uses JSHint)
-```
+**Strangler fig pattern**: `app-bundle.js` loads after legacy scripts and overwrites `Blockscad.*` / `Blockly.OpenSCAD.*` with ES module versions. Blockly block definitions still read globals (`Blockscad.missingFields`, `.resolution`, `.doVariableHack`, `.workspace`, `.Toolbox.HEX_*`, `.Msg.*`).
 
-### Building
-```bash
-npm run build-standalone   # Build standalone desktop app (NW.js)
-npm run clean-standalone   # Clean build artifacts
-```
+**Toolbox**: Data-driven. `block-defs.js` defines blocks as objects with `{ type, values, advancedOnly }`. `xml-builder.js` generates XML. No more duplicated XML strings.
 
-### Running Tests
+**Typing system** (`typing.js`): Uses `setTimeout(fn, 0)` for timing. Highest-risk module — test block connect/disconnect, variable renaming, procedure definitions thoroughly.
 
-**OpenSCAD-OpenJSCAD Translator Tests:**
-```bash
-# Run all translator tests
-cd openscad-openjscad-translator && node tests/all-tests.js
+## Constraints
 
-# Run a single test file
-cd openscad-openjscad-translator && node tests/primitive_solids.js
-cd openscad-openjscad-translator && node tests/transformations.js
-cd openscad-openjscad-translator && node tests/modules.js
-```
+- Blockly fork and jQuery: untouched
+- `Blockscad` global namespace must stay accessible to Blockly block definitions/generators
+- See `global-interface.js` for which properties must remain global
 
-**Blockly Tests:**
-- Open `blockly/tests/playground.html` in a browser
-- Individual JSUnit tests in `blockly/tests/jsunit/` (browser-based)
+## Style
 
-## Code Style Guidelines
-
-### File Headers and Strict Mode
-All files should include the GPL-3.0 license header and use strict mode:
-```javascript
-/*
-    Copyright (C) 2014-2015  H3XL, Inc
-    This program is free software...
-*/
-'use strict';
-```
-
-### Namespace Pattern
-Use namespace objects to avoid global pollution:
-```javascript
-var Blockscad = Blockscad || {};
-Blockscad.Toolbox = Blockscad.Toolbox || {};
-var BSUtils = BSUtils || {};
-```
-
-### Naming Conventions
-- **Functions/Methods:** camelCase - `Blockscad.doRender()`, `BSUtils.getLang()`
-- **Namespaces/Constructors:** PascalCase - `Blockscad`, `BSUtils`, `Blockly`
-- **Constants:** UPPER_SNAKE_CASE - `BSUtils.LANGUAGE_NAME`, `Blockly.OpenSCAD.ORDER_ATOMIC`
-- **Private functions:** trailing underscore - `BSUtils.dialogKeyDown_`
-- **Variables:** camelCase - `currentProject`, `needToSave`
-
-### Indentation and Formatting
-- **Indentation:** 2 spaces (Google/Blockly style)
-- **Max line length:** 120 characters
-- **Linebreaks:** Unix style (LF)
-- **Semicolons:** Required
-- **No space before function parentheses:** `function()` not `function ()`
-- **Curly braces:** Required for multi-line blocks
-
-### Imports (Google Closure)
-```javascript
-goog.provide('Blockly.OpenSCAD');
-goog.require('Blockly.Generator');
-goog.require('Blockly.Blocks');
-```
-
-### Block Definition Pattern
-When defining new Blockly blocks:
-```javascript
-Blockly.Blocks['sphere'] = {
-  init: function() {
-    this.category = 'PRIMITIVE_CSG';
-    this.setHelpUrl('http://www.example.com/');
-    this.setColour(Blockscad.Toolbox.HEX_3D_PRIMITIVE);
-    this.appendDummyInput()
-        .appendField(Blockscad.Msg.SPHERE + "  ");
-    this.appendValueInput("RAD")
-        .setCheck("Number")
-        .appendField(Blockscad.Msg.RADIUS)
-        .setAlign(Blockly.ALIGN_RIGHT);
-    this.setInputsInline(true);
-    this.setPreviousStatement(true, 'CSG');
-    this.setTooltip(Blockscad.Msg.SPHERE_TOOLTIP);
-  }
-};
-```
-
-### Error Handling
-- Use callbacks with error parameters for async operations
-- Use `try/catch` blocks for parsing and file operations
-- Check for null/undefined workspace before DOM operations:
-```javascript
-if (!this.workspace) {
-  // Block has been deleted.
-  return;
-}
-```
-
-### Global Variables
-Known globals (don't redeclare):
-- `Blockly` - Blockly library
-- `Blockscad` - BlocksCAD application namespace
-- `BSUtils` - BlocksCAD utilities
-- `goog` - Google Closure Library
-- `$` - jQuery
-
-## Important Notes
-
-1. **No ES6 modules** - Uses script tags in HTML for imports
-2. **Blockly is a customized fork** - Be careful with upstream changes
-3. **i18n** - Use `Blockscad.Msg.*` and `Blockly.Msg.*` for user-facing strings
-4. **Colors** - Use `Blockscad.Toolbox.HEX_*` constants for block colors
-5. **CSG Types** - Blocks use `'CSG'` type for 3D geometry connections
+2-space indent, semicolons, camelCase functions, PascalCase namespaces, UPPER_SNAKE constants. `Blockscad.Msg.*` for i18n. `'CSG'`/`'CAG'` for geometry type connections.
