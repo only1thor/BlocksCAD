@@ -7,7 +7,8 @@
   "scripts": {
     "test": "node test/test-parser.js",
     "build:cm6": "esbuild blockscad/cm6-entry.js --bundle --format=iife --outfile=blockscad/cm6-bundle.js --minify",
-    "build": "npm run build:cm6 && npm test",
+    "build:app": "esbuild blockscad/src/main-entry.js --bundle --format=iife --outfile=blockscad/app-bundle.js",
+    "build": "npm run build:cm6 && npm run build:app && npm test",
     "lint": "node_modules/.bin/jshint blockly blockscad",
     "build-standalone": "node build-standalone.js",
     "clean-standalone": "rm -rf node_modules build"
