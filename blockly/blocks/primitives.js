@@ -11,8 +11,8 @@ Blockly.Blocks['sphere'] = {
     this.appendValueInput("RAD")
         .setCheck("Number")
         .appendField(new Blockly.FieldDropdown([
-          [Blockscad.Msg.RADIUS, 'radius'],
-          [Blockscad.Msg.DIAMETER, 'diameter']
+          [Blockscad.Msg.DIAMETER, 'diameter'],
+          [Blockscad.Msg.RADIUS, 'radius']
         ]), 'MEASURE')
         .setAlign(Blockly.ALIGN_RIGHT);
     this.setInputsInline(true);
@@ -61,12 +61,12 @@ Blockly.Blocks['cylinder'] = {
     this.appendDummyInput()
         .appendField(Blockscad.Msg.CYLINDER + '  ')
         .appendField(new Blockly.FieldDropdown([
-          [Blockscad.Msg.RADIUS, 'radius'],
-          [Blockscad.Msg.DIAMETER, 'diameter']
+          [Blockscad.Msg.DIAMETER, 'diameter'],
+          [Blockscad.Msg.RADIUS, 'radius']
         ], this.updateLabels_.bind(this)), 'MEASURE');
     this.appendValueInput('RAD1')
         .setCheck('Number')
-        .appendField(Blockscad.Msg.RADIUS + '1', 'LABEL1')
+        .appendField(Blockscad.Msg.DIAMETER + '1', 'LABEL1')
         .setAlign(Blockly.ALIGN_RIGHT);
     // handle backwards compatibility for cylinders created before locking.
     if (Blockscad.inputVersion == null || Blockscad.inputVersion == "1.0.0"
@@ -87,7 +87,7 @@ Blockly.Blocks['cylinder'] = {
     //     .appendField(new Blockly.FieldCheckbox("TRUE", null), "CHECK") ;
     this.appendValueInput('RAD2')
         .setCheck('Number')
-        .appendField(Blockscad.Msg.RADIUS + '2', 'LABEL2')
+        .appendField(Blockscad.Msg.DIAMETER + '2', 'LABEL2')
         .setAlign(Blockly.ALIGN_RIGHT);
     this.appendValueInput('HEIGHT')
         .setCheck('Number')
@@ -159,8 +159,8 @@ Blockly.Blocks['simple_cylinder'] = {
     this.appendValueInput('RAD1')
         .setCheck('Number')
         .appendField(new Blockly.FieldDropdown([
-          [Blockscad.Msg.RADIUS, 'radius'],
-          [Blockscad.Msg.DIAMETER, 'diameter']
+          [Blockscad.Msg.DIAMETER, 'diameter'],
+          [Blockscad.Msg.RADIUS, 'radius']
         ]), 'MEASURE')
         .setAlign(Blockly.ALIGN_RIGHT);
     this.appendValueInput('HEIGHT')
@@ -224,16 +224,16 @@ Blockly.Blocks['torus'] = {
     this.appendDummyInput()
         .appendField(Blockscad.Msg.TORUS + '  ')
         .appendField(new Blockly.FieldDropdown([
-          [Blockscad.Msg.RADIUS, 'radius'],
-          [Blockscad.Msg.DIAMETER, 'diameter']
+          [Blockscad.Msg.DIAMETER, 'diameter'],
+          [Blockscad.Msg.RADIUS, 'radius']
         ], this.updateLabels_.bind(this)), 'MEASURE');
     this.appendValueInput('RAD1')
         .setCheck('Number')
-        .appendField(Blockscad.Msg.RADIUS + '1', 'LABEL1')
+        .appendField(Blockscad.Msg.DIAMETER + '1', 'LABEL1')
         .setAlign(Blockly.ALIGN_RIGHT);
     this.appendValueInput('RAD2')
         .setCheck('Number')
-        .appendField(Blockscad.Msg.RADIUS + '2', 'LABEL2')
+        .appendField(Blockscad.Msg.DIAMETER + '2', 'LABEL2')
         .setAlign(Blockly.ALIGN_RIGHT);
     this.appendValueInput('SIDES')
         .setCheck('Number')
@@ -280,16 +280,16 @@ Blockly.Blocks['twistytorus'] = {
     this.appendDummyInput()
         .appendField('Twisty Torus  ')
         .appendField(new Blockly.FieldDropdown([
-          [Blockscad.Msg.RADIUS, 'radius'],
-          [Blockscad.Msg.DIAMETER, 'diameter']
+          [Blockscad.Msg.DIAMETER, 'diameter'],
+          [Blockscad.Msg.RADIUS, 'radius']
         ], this.updateLabels_.bind(this)), 'MEASURE');
     this.appendValueInput('RAD1')
         .setCheck('Number')
-        .appendField('ring ' + Blockscad.Msg.RADIUS, 'LABEL1')
+        .appendField('ring ' + Blockscad.Msg.DIAMETER, 'LABEL1')
         .setAlign(Blockly.ALIGN_RIGHT);
     this.appendValueInput('RAD2')
         .setCheck('Number')
-        .appendField('cross-section ' + Blockscad.Msg.RADIUS, 'LABEL2')
+        .appendField('cross-section ' + Blockscad.Msg.DIAMETER, 'LABEL2')
         .setAlign(Blockly.ALIGN_RIGHT);
     this.appendValueInput('SIDES')
         .setCheck('Number')
@@ -342,8 +342,8 @@ Blockly.Blocks['circle'] = {
     this.appendValueInput('RAD')
         .setCheck('Number')
         .appendField(new Blockly.FieldDropdown([
-          [Blockscad.Msg.RADIUS, 'radius'],
-          [Blockscad.Msg.DIAMETER, 'diameter']
+          [Blockscad.Msg.DIAMETER, 'diameter'],
+          [Blockscad.Msg.RADIUS, 'radius']
         ]), 'MEASURE')
         .setAlign(Blockly.ALIGN_RIGHT);
     this.setInputsInline(true);
