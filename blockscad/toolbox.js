@@ -19,7 +19,7 @@ Blockscad.Toolbox.allcats = ['HEX_3D_PRIMITIVE','HEX_2D_PRIMITIVE','HEX_TRANSFOR
                 'HEX_SETOP', 'HEX_MATH','HEX_LOGIC','HEX_LOOP','HEX_TEXT',
                 'HEX_VARIABLE','HEX_PROCEDURE'];
 
-Blockscad.Toolbox.whichCatsInSimple = [0,2,3,4,8,9];
+Blockscad.Toolbox.whichCatsInSimple = [0,2,3,4,7,8,9];
 
 
 Blockscad.Toolbox.colorScheme = {};
@@ -709,7 +709,24 @@ Blockscad.Toolbox.catOther = '<category name="' + Blockscad.Msg.CATEGORY_TEXT + 
     '<category name="' + Blockscad.Msg.CATEGORY_PROCEDURES + '" custom="PROCEDURE"></category>' +
   '</xml>'; 
 
-Blockscad.Toolbox.catOther_sim = 
+Blockscad.Toolbox.catOther_sim = '<category name="' + Blockscad.Msg.CATEGORY_TEXT + '">' +
+      '<block type="bs_3dtext">' +
+        '<value name="TEXT">' +
+          '<shadow type="text">' +
+          '</shadow>' +
+        '</value>' +
+        '<value name="SIZE">' +
+          '<shadow type="math_number">' +
+            '<field name="NUM">10</field>' +
+          '</shadow>' +
+        '</value>' +
+        '<value name="THICKNESS">' +
+          '<shadow type="math_number">' +
+            '<field name="NUM">2</field>' +
+          '</shadow>' +
+        '</value>' +
+      '</block>' +
+    '</category>' +
     '<category name="' + Blockscad.Msg.CATEGORY_VARIBLES + '" custom="VARIABLE"></category>' +
     '<category name="' + Blockscad.Msg.CATEGORY_PROCEDURES + '" custom="PROCEDURE"></category>' +
     '</xml>';
