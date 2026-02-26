@@ -18,6 +18,10 @@ Blockly.Blocks['sphere'] = {
     this.setInputsInline(true);
     this.setPreviousStatement(true, 'CSG');
     this.setTooltip(Blockscad.Msg.SPHERE_TOOLTIP);
+    // Backward compat: old projects defaulted to radius
+    if (Blockscad.inputVersion !== Blockscad.version) {
+        this.getField('MEASURE').setValue('radius');
+    }
   }//,
   // onchange: function() {
   //   if (!this.workspace) {
@@ -98,6 +102,11 @@ Blockly.Blocks['cylinder'] = {
     this.setInputsInline(true);
     this.setPreviousStatement(true, 'CSG');
     this.setTooltip(Blockscad.Msg.CYLINDER_TOOLTIP);
+    // Backward compat: old projects defaulted to radius
+    // setValue triggers updateLabels_ to fix "Diameter1/2" → "Radius1/2"
+    if (Blockscad.inputVersion !== Blockscad.version) {
+        this.getField('MEASURE').setValue('radius');
+    }
   },
   updateLabels_: function(newValue) {
     var label = (newValue === 'diameter') ? Blockscad.Msg.DIAMETER : Blockscad.Msg.RADIUS;
@@ -172,6 +181,10 @@ Blockly.Blocks['simple_cylinder'] = {
     this.setInputsInline(true);
     this.setPreviousStatement(true, 'CSG');
     this.setTooltip('Creates a cylinder with a specified radius and height.  It may optionally be centered at the origin.');
+    // Backward compat: old projects defaulted to radius
+    if (Blockscad.inputVersion !== Blockscad.version) {
+        this.getField('MEASURE').setValue('radius');
+    }
   }//,
 };
 
@@ -246,6 +259,11 @@ Blockly.Blocks['torus'] = {
     this.setInputsInline(true);
     this.setPreviousStatement(true, 'CSG');
     this.setTooltip(Blockscad.Msg.TORUS_TOOLTIP);
+    // Backward compat: old projects defaulted to radius
+    // setValue triggers updateLabels_ to fix "Diameter1/2" → "Radius1/2"
+    if (Blockscad.inputVersion !== Blockscad.version) {
+        this.getField('MEASURE').setValue('radius');
+    }
   },
   updateLabels_: function(newValue) {
     var label = (newValue === 'diameter') ? Blockscad.Msg.DIAMETER : Blockscad.Msg.RADIUS;
@@ -306,6 +324,11 @@ Blockly.Blocks['twistytorus'] = {
     this.setInputsInline(true);
     this.setPreviousStatement(true, 'CSG');
     this.setTooltip('Creates a torus with a ring of specified distance on-center from the origin (radius1), with a specified radius (radius2), a specified number of sides and faces. The "twist" is in degrees, and should be used with caution');
+    // Backward compat: old projects defaulted to radius
+    // setValue triggers updateLabels_ to fix "Diameter1/2" → "Radius1/2"
+    if (Blockscad.inputVersion !== Blockscad.version) {
+        this.getField('MEASURE').setValue('radius');
+    }
   },
   updateLabels_: function(newValue) {
     var label = (newValue === 'diameter') ? Blockscad.Msg.DIAMETER : Blockscad.Msg.RADIUS;
@@ -349,6 +372,10 @@ Blockly.Blocks['circle'] = {
     this.setInputsInline(true);
     this.setPreviousStatement(true, 'CAG');
     this.setTooltip(Blockscad.Msg.CIRCLE_TOOLTIP);
+    // Backward compat: old projects defaulted to radius
+    if (Blockscad.inputVersion !== Blockscad.version) {
+        this.getField('MEASURE').setValue('radius');
+    }
   }//,
   // onchange: function() {
   //   if (!this.workspace) {
