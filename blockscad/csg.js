@@ -427,46 +427,49 @@ for solid CAD anyway.
               }
             }
             
-            var points = getPoints(csgs);
-            // console.log("points for hull are:",points);
+            try {
+                var points = getPoints(csgs);
+                // console.log("points for hull are:",points);
 
-            var color = getColor(csgs);
+                var color = getColor(csgs);
 
-            var qhull = new CSG.quickHull3D();
+                var qhull = new CSG.quickHull3D();
 
-            var faces = qhull.build(points);
+                var faces = qhull.build(points);
 
-            // console.log(faces);
-          
-            var polygons = [];
-            for (var i = 0; i < faces.length; i++) {
-                // each index is a face.  I need to get the points and make an array of them
-                // to send to CSG.Polygon.createFromPoints
-                var pp = [];
-                for (var j = 0; j < faces[i].length; j++) {
-                    // each of these should be an integer index into the original points variable.
-                    pp.push(points[faces[i][j]]);
+                // console.log(faces);
+
+                var polygons = [];
+                for (var i = 0; i < faces.length; i++) {
+                    // each index is a face.  I need to get the points and make an array of them
+                    // to send to CSG.Polygon.createFromPoints
+                    var pp = [];
+                    for (var j = 0; j < faces[i].length; j++) {
+                        // each of these should be an integer index into the original points variable.
+                        pp.push(points[faces[i][j]]);
+                    }
+                    // console.log("points for polygons");
+                    // console.log(pp);
+                    // var thispoly = new CSG.Polygon.createFromPoints(pp).sC(color);
+
+                    var np = new CSG.Polygon.createFromPoints(pp);
+                    if (color)
+                        np.sC(color);
+                    polygons.push(np);
                 }
-                // console.log("points for polygons");
-                // console.log(pp);
-                // var thispoly = new CSG.Polygon.createFromPoints(pp).sC(color);
+                // console.log("polygons");
+                // console.log(polygons);
 
-                var np = new CSG.Polygon.createFromPoints(pp);
-                if (color)
-                    np.sC(color);
-                polygons.push(np);
+                // I don't think I need to retesselate or canonicalize this CSG.
+
+                var hulledShape = CSG.fromPolygons(polygons);
+                hulledShape.isCanonicalized = true;
+                hulledShape.isRetesselated = true;
+
+                return CSG.fromPolygons(polygons);
+            } catch (e) {
+                return new CSG();
             }
-            // console.log("polygons");
-            // console.log(polygons);
-
-            // I don't think I need to retesselate or canonicalize this CSG.
-
-            var hulledShape = CSG.fromPolygons(polygons);
-            hulledShape.isCanonicalized = true;
-            hulledShape.isRetesselated = true;
-
-            return CSG.fromPolygons(polygons);
-
 
         },
          // end hull3d
