@@ -5,7 +5,7 @@
   "main": "app://blockscad/index.html",
   "chromium-args": "--data-path='data/' --enable-webgl --ignore-gpu-blacklist",
   "scripts": {
-    "test": "node test/test-parser.js",
+    "test": "node test/test-parser.js && node test/test-csg.js",
     "build:cm6": "esbuild blockscad/cm6-entry.js --bundle --format=iife --outfile=blockscad/cm6-bundle.js --minify",
     "build:app": "esbuild blockscad/src/main-entry.js --bundle --format=iife --outfile=blockscad/app-bundle.js",
     "build": "npm run build:cm6 && npm run build:app && npm test",
