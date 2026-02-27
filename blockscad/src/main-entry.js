@@ -89,4 +89,4 @@ B.Toolbox.setCatColors = setCatColors;
 // Also expose promptForSave globally since it's used as a bare function
 window.promptForSave = promptForSave;
 
-console.log('[BlocksCAD] Module system loaded (v' + VERSION + ')');
+

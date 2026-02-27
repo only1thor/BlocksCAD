@@ -7,8 +7,8 @@ import { categoryToXml, customCategoryToXml } from './xml-builder.js';
 
 // T and Msg are refreshed inside each public function because the Toolbox and
 // Msg sub-objects may not exist yet when this module first loads.
-var T = window.Blockscad.Toolbox;
-var Msg = window.Blockscad.Msg;
+let T = null;
+let Msg = null;
 
 export function createToolbox() {
   // Refresh Msg reference in case it was loaded after this module

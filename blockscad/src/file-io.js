@@ -87,7 +87,7 @@ export function readStlFile(evt) {
       var result = importSTL(contents);
       var src = result[0];
       var center = result[1];
-      if (!center) center = 'blah';
+      if (!center) center = 'none';
       var proj_name = f.name.substr(0, f.name.lastIndexOf('(')) || f.name;
       proj_name = proj_name.substr(0, f.name.lastIndexOf('.')) || proj_name;
       proj_name = proj_name.replace(/^\s+|\s+$/g, '');
@@ -255,6 +255,6 @@ export function saveOpenscadLocal() {
     saveAs(blob, blocks_filename + ".scad");
   }
   else {
-    alert("SAVE FAILED.  Please give your project a name, then try again.");
+    alert(B.Msg.SAVE_FAILED + '!\n' + B.Msg.SAVE_FAILED_PROJECT_NAME);
   }
 }
