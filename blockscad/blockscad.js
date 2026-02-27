@@ -478,6 +478,22 @@ Blockscad.init = function() {
   if (Blockscad.showMessageModal)
     $('#outage-modal').modal('show');
 
+  // GitHub Pages issue report button
+  (function() {
+    var hostname = window.location.hostname;
+    if (hostname.endsWith('.github.io')) {
+      var username = hostname.replace('.github.io', '');
+      var pathSegments = window.location.pathname.split('/').filter(Boolean);
+      var repo = pathSegments.length > 0 ? pathSegments[0] : username + '.github.io';
+      var issuesUrl = 'https://github.com/' + username + '/' + repo + '/issues/new';
+      var btn = document.getElementById('report-issue-btn');
+      if (btn) {
+        btn.href = issuesUrl;
+        btn.style.display = '';
+      }
+    }
+  })();
+
   // Initialize dark mode from saved preference
   Blockscad.initDarkMode();
 
