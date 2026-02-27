@@ -405,7 +405,8 @@
   }
   function savePicLocal(pic) {
     var blob = new Blob([pic], { type: "img/jpeg" });
-    saveAs(blob, "tryThis.jpg");
+    var picFilename = $("#project-name").val() || "blockscad";
+    saveAs(blob, picFilename + ".jpg");
   }
   function saveOpenscadLocal() {
     var preCode = Blockly.OpenSCAD.workspaceToCode(B4.workspace);

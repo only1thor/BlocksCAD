@@ -5,6 +5,8 @@ import { colorSchemes, allCatNames, simpleCatIndices } from './color-schemes.js'
 import { blocks3D, blocks2D, blocksTransform, blocksSetOps, blocksMath, blocksLogic, blocksLoops, blocksText } from './block-defs.js';
 import { categoryToXml, customCategoryToXml } from './xml-builder.js';
 
+// T and Msg are refreshed inside each public function because the Toolbox and
+// Msg sub-objects may not exist yet when this module first loads.
 var T = window.Blockscad.Toolbox;
 var Msg = window.Blockscad.Msg;
 
