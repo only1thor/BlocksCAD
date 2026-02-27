@@ -104,6 +104,7 @@ output += '             <a type="button" class="btn btn-default btn-lg" style="m
 // output += '          </li>\n';
 output += '        </ul>\n';
 output += '        <div id="login-area" class="navbar-right">\n';
+output += '          <a type="button" class="btn btn-default btn-lg" id="report-issue-btn" style="margin-top:2px; display:none" target="_blank">Report Issue</a>\n';
 output += '        </div>\n';
 output += '      </div>  <!-- /.container-fluid -->\n';
 output += '    </nav>\n';
