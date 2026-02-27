@@ -241,7 +241,8 @@ export function saveBlocksLocal() {
 
 export function savePicLocal(pic) {
   var blob = new Blob([pic], {type: "img/jpeg"});
-  saveAs(blob, "tryThis.jpg");
+  var picFilename = $('#project-name').val() || 'blockscad';
+  saveAs(blob, picFilename + ".jpg");
 }
 
 export function saveOpenscadLocal() {
