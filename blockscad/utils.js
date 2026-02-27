@@ -10,11 +10,17 @@ var BSUtils = BSUtils || {};
 BSUtils.LANGUAGE_NAME = {
   'en': 'English',
   'de': 'Deutsch',
+  'es': 'Español',
   'fr': 'Français',
-  'zh-hans': '簡體中文',
-   'sl' : 'Slovenščina',
-   'nb': 'Norsk Bokmål'
-  // 'es': 'Español'
+  'it': 'Italiano',
+  'ja': '日本語',
+  'nb': 'Norsk Bokmål',
+  'pl': 'Polski',
+  'ru': 'Русский',
+  'sl': 'Slovenščina',
+  'sv': 'Svenska',
+  'tr': 'Türkçe',
+  'zh-hans': '簡體中文'
 };
 // BSUtils.LANGUAGE_NAME = {
 //   'ar': 'العربية',
