@@ -172,9 +172,9 @@
     window.dispatchEvent(new Event("resize"));
   }
   function discard() {
-    var count = Blockly.mainWorkspace.getAllBlocks().length;
+    var count = B3.workspace.getAllBlocks().length;
     if (count < 2) {
-      Blockly.mainWorkspace.clear();
+      B3.workspace.clear();
       window.location.hash = "";
     } else {
       var message = B3.Msg.DISCARD_ALL.replace("%1", count);
@@ -193,7 +193,7 @@
         },
         callback: function(result) {
           if (result) {
-            Blockly.mainWorkspace.clear();
+            B3.workspace.clear();
             window.location.hash = "";
           }
         }
@@ -239,7 +239,7 @@
         B4.Auth.currentProject = "";
       }
       if (replaceOld)
-        Blockly.getMainWorkspace().clear();
+        B4.workspace.clear();
       var r = new FileReader();
       r.onload = function(e) {
         var contents = e.target.result;
@@ -392,7 +392,7 @@
     }
   }
   function saveBlocksLocal() {
-    var xmlDom = Blockly.Xml.workspaceToDom(Blockly.getMainWorkspace());
+    var xmlDom = Blockly.Xml.workspaceToDom(B4.workspace);
     var xmlText = Blockly.Xml.domToText(xmlDom);
     var blob = new Blob([xmlText], { type: "text/plain;charset=utf-8" });
     var blocks_filename = $("#project-name").val();
@@ -664,7 +664,7 @@
     }
   }
   function assignBlockTypes(blocks) {
-    if (!goog.isArray(blocks))
+    if (!Array.isArray(blocks))
       blocks = [blocks];
     setTimeout(function() {
       for (var i = 0; blocks && blocks[i] && i < blocks.length; i++) {
@@ -703,7 +703,7 @@
     do {
       if (block.category == "EXTRUDE")
         return true;
-      block = block.parentBlock_;
+      block = block.getParent();
     } while (block);
     return false;
   }
@@ -714,7 +714,7 @@
         if (!Blockly.dragMode_) {
           while (B5.renderActions.length > 0) {
             var actionItem = B5.renderActions.shift();
-            actionItem.action.call(B5.renderActions.thisArg);
+            actionItem.action.call(actionItem.thisArg);
           }
           window.clearInterval(functId);
         }
@@ -739,7 +739,7 @@
   var B6 = window.Blockscad;
   function mixes2and3D() {
     var topBlocks = [];
-    topBlocks = Blockly.mainWorkspace.getTopBlocks();
+    topBlocks = B6.workspace.getTopBlocks();
     var hasCSG = 0;
     var hasCAG = 0;
     var hasUnknown = 0;
@@ -767,7 +767,7 @@
       }
     }
     if (hasShape && !(hasCSG + hasCAG + hasUnknown)) {
-      B6.assignBlockTypes(Blockly.mainWorkspace.getTopBlocks());
+      B6.assignBlockTypes(B6.workspace.getTopBlocks());
     }
     return [hasCSG && hasCAG, hasShape];
   }
@@ -796,7 +796,7 @@
     var others, blk;
     if (B6.missingFields.length > 0) {
       for (var i = 0; i < B6.missingFields.length; i++) {
-        blk = Blockly.mainWorkspace.getBlockById(B6.missingFields[i]);
+        blk = B6.workspace.getBlockById(B6.missingFields[i]);
         blk.unselect();
         blk.backlight();
         others = blk.collapsedParents();
@@ -810,7 +810,7 @@
     }
     if (B6.illegalValue.length > 0) {
       for (var i = 0; i < B6.illegalValue.length; i++) {
-        blk = Blockly.mainWorkspace.getBlockById(B6.illegalValue[i]);
+        blk = B6.workspace.getBlockById(B6.illegalValue[i]);
         blk.unselect();
         blk.backlight();
         others = blk.collapsedParents();

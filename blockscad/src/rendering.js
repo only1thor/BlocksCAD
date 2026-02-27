@@ -5,7 +5,7 @@ const B = window.Blockscad;
 
 export function mixes2and3D() {
   var topBlocks = [];
-  topBlocks = Blockly.mainWorkspace.getTopBlocks();
+  topBlocks = B.workspace.getTopBlocks();
   var hasCSG = 0;
   var hasCAG = 0;
   var hasUnknown = 0;
@@ -34,7 +34,7 @@ export function mixes2and3D() {
     }
   }
   if (hasShape && !(hasCSG + hasCAG + hasUnknown)) {
-    B.assignBlockTypes(Blockly.mainWorkspace.getTopBlocks());
+    B.assignBlockTypes(B.workspace.getTopBlocks());
   }
   return [(hasCSG && hasCAG), hasShape];
 }
@@ -71,7 +71,7 @@ export function doRender() {
 
   if (B.missingFields.length > 0) {
     for (var i = 0; i < B.missingFields.length; i++) {
-      blk = Blockly.mainWorkspace.getBlockById(B.missingFields[i]);
+      blk = B.workspace.getBlockById(B.missingFields[i]);
       blk.unselect();
       blk.backlight();
       others = blk.collapsedParents();
@@ -85,7 +85,7 @@ export function doRender() {
   }
   if (B.illegalValue.length > 0) {
     for (var i = 0; i < B.illegalValue.length; i++) {
-      blk = Blockly.mainWorkspace.getBlockById(B.illegalValue[i]);
+      blk = B.workspace.getBlockById(B.illegalValue[i]);
       blk.unselect();
       blk.backlight();
       others = blk.collapsedParents();

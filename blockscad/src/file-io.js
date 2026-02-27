@@ -46,7 +46,7 @@ export function readSingleFile(evt, replaceOld) {
     }
 
     if (replaceOld)
-      Blockly.getMainWorkspace().clear();
+      B.workspace.clear();
 
     var r = new FileReader();
     r.onload = function(e) {
@@ -225,7 +225,7 @@ export function clearStlBlocks() {
 }
 
 export function saveBlocksLocal() {
-  var xmlDom = Blockly.Xml.workspaceToDom(Blockly.getMainWorkspace());
+  var xmlDom = Blockly.Xml.workspaceToDom(B.workspace);
   var xmlText = Blockly.Xml.domToText(xmlDom);
   var blob = new Blob([xmlText], {type: "text/plain;charset=utf-8"});
 
