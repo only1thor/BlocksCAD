@@ -113,6 +113,7 @@ Blockscad.Msg.FONT_NAME = "文本字体";
 Blockscad.Msg.FONT_SIZE = "文本大小";
 Blockscad.Msg.GENERATE_STL = "生成";
 Blockscad.Msg.GET_STARTED_VIDEO = "开始视频!";
+Blockscad.Msg.REPORT_ISSUE = "报告问题";
 Blockscad.Msg.HEIGHT = "高度";
 Blockscad.Msg.HELP_MENU = "帮助菜单";
 Blockscad.Msg.HIGHLIGHT_INSTANCES = "高亮 '%1' 实例";

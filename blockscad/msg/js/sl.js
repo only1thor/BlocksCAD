@@ -113,6 +113,7 @@ Blockscad.Msg.FONT_NAME = "ime pisave";
 Blockscad.Msg.FONT_SIZE = "velikost pisave";
 Blockscad.Msg.GENERATE_STL = "Ustvari";
 Blockscad.Msg.GET_STARTED_VIDEO = "Osnove?";
+Blockscad.Msg.REPORT_ISSUE = "Prijavi napako";
 Blockscad.Msg.HEIGHT = "višina";
 Blockscad.Msg.HELP_MENU = "Pomoč";
 Blockscad.Msg.HIGHLIGHT_INSTANCES = "Poudari vseh '%1' instanc";

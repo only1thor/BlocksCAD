@@ -113,6 +113,7 @@ Blockscad.Msg.FONT_NAME = "police";
 Blockscad.Msg.FONT_SIZE = "taille";
 Blockscad.Msg.GENERATE_STL = "Générer";
 Blockscad.Msg.GET_STARTED_VIDEO = "Commencer!";
+Blockscad.Msg.REPORT_ISSUE = "Signaler un problème";
 Blockscad.Msg.HEIGHT = "hauteur";
 Blockscad.Msg.HELP_MENU = "Aide";
 Blockscad.Msg.HIGHLIGHT_INSTANCES = "Highlight '%1' Instances";

@@ -220,5 +220,6 @@
 	"EXAMPLE_LOOP_SUN": "Sonček ustvarjen z zanko",
 	"EXAMPLE_LOOP_SINE": "Ploščina pod Sinus-Funkcijo prikazna z zanko",
 	"EXAMPLE_PARAMETRIC_EQ_KNOT": "Zančna deteljica iz parametričnih enačb",
-	"GET_STARTED_VIDEO": "Osnove?"
+	"GET_STARTED_VIDEO": "Osnove?",
+	"REPORT_ISSUE": "Prijavi napako"
 }

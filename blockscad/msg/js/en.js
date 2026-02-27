@@ -113,6 +113,7 @@ Blockscad.Msg.FONT_NAME = "font";
 Blockscad.Msg.FONT_SIZE = "size";
 Blockscad.Msg.GENERATE_STL = "Generate";
 Blockscad.Msg.GET_STARTED_VIDEO = "Get Started!";
+Blockscad.Msg.REPORT_ISSUE = "Report Issue";
 Blockscad.Msg.HEIGHT = "height";
 Blockscad.Msg.HELP_MENU = "Help";
 Blockscad.Msg.HIGHLIGHT_INSTANCES = "Highlight '%1' Instances";
