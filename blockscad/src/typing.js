@@ -279,7 +279,7 @@ export function handleWorkspaceEvents(event) {
 }
 
 export function assignBlockTypes(blocks) {
-  if (!goog.isArray(blocks))
+  if (!Array.isArray(blocks))
     blocks = [blocks];
   setTimeout(function() {
     for (var i = 0; blocks && blocks[i] && i < blocks.length; i++) {
@@ -324,7 +324,7 @@ export function hasExtrudeParent(block) {
   do {
     if (block.category == 'EXTRUDE')
       return true;
-    block = block.parentBlock_;
+    block = block.getParent();
   } while (block);
   return false;
 }
@@ -336,7 +336,7 @@ export function executeAfterDrag_(action, thisArg) {
       if (!Blockly.dragMode_) {
         while (B.renderActions.length > 0) {
           var actionItem = B.renderActions.shift();
-          actionItem.action.call(B.renderActions.thisArg);
+          actionItem.action.call(actionItem.thisArg);
         }
         window.clearInterval(functId);
       }

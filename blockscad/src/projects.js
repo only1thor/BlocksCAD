@@ -98,9 +98,9 @@ export function clearProject() {
 }
 
 export function discard() {
-  var count = Blockly.mainWorkspace.getAllBlocks().length;
+  var count = B.workspace.getAllBlocks().length;
   if (count < 2) {
-    Blockly.mainWorkspace.clear();
+    B.workspace.clear();
     window.location.hash = '';
   }
   else {
@@ -120,7 +120,7 @@ export function discard() {
       },
       callback: function(result) {
         if (result) {
-          Blockly.mainWorkspace.clear();
+          B.workspace.clear();
           window.location.hash = '';
         }
       }
