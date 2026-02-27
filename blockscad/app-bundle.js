@@ -270,7 +270,7 @@
         var result = importSTL(contents);
         var src = result[0];
         var center = result[1];
-        if (!center) center = "blah";
+        if (!center) center = "none";
         var proj_name = f.name.substr(0, f.name.lastIndexOf("(")) || f.name;
         proj_name = proj_name.substr(0, f.name.lastIndexOf(".")) || proj_name;
         proj_name = proj_name.replace(/^\s+|\s+$/g, "");
@@ -416,7 +416,7 @@
     if (blocks_filename) {
       saveAs(blob, blocks_filename + ".scad");
     } else {
-      alert("SAVE FAILED.  Please give your project a name, then try again.");
+      alert(B4.Msg.SAVE_FAILED + "!\n" + B4.Msg.SAVE_FAILED_PROJECT_NAME);
     }
   }
 
@@ -1170,8 +1170,8 @@
   }
 
   // blockscad/src/toolbox/index.js
-  var T = window.Blockscad.Toolbox;
-  var Msg = window.Blockscad.Msg;
+  var T = null;
+  var Msg = null;
   function createToolbox() {
     Msg = window.Blockscad.Msg;
     T = window.Blockscad.Toolbox;
@@ -1281,5 +1281,4 @@
   B7.Toolbox.setColorScheme = setColorScheme;
   B7.Toolbox.setCatColors = setCatColors;
   window.promptForSave = promptForSave;
-  console.log("[BlocksCAD] Module system loaded (v" + VERSION + ")");
 })();

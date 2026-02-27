@@ -5,3 +5,5 @@ auth.js
 closure-library/*
 
 node_modules/*
+
+test/_test-*
