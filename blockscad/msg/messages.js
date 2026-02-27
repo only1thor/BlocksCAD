@@ -516,6 +516,9 @@ Blockscad.Msg.EXAMPLE_PARAMETRIC_EQ_KNOT = 'knot from parametric equations';
 
 /// Button or link to the Blockscad Get Started Video
 Blockscad.Msg.GET_STARTED_VIDEO = 'Get Started!';
+
+/// Button to report a bug or issue on GitHub
+Blockscad.Msg.REPORT_ISSUE = 'Report Issue';
  
 
 

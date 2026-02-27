@@ -113,6 +113,7 @@ Blockscad.Msg.FONT_NAME = "schriftart";
 Blockscad.Msg.FONT_SIZE = "schriftgrösse";
 Blockscad.Msg.GENERATE_STL = "Generieren";
 Blockscad.Msg.GET_STARTED_VIDEO = "Erste Schritte!";
+Blockscad.Msg.REPORT_ISSUE = "Fehler melden";
 Blockscad.Msg.HEIGHT = "höhe";
 Blockscad.Msg.HELP_MENU = "Hilfe";
 Blockscad.Msg.HIGHLIGHT_INSTANCES = "Alle '%1' Instanzen hervorheben";

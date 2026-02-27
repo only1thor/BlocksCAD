@@ -220,5 +220,6 @@
 	"EXAMPLE_LOOP_SUN": "coque étoile",
 	"EXAMPLE_LOOP_SINE": "fonction sinus avec boucle",
 	"EXAMPLE_PARAMETRIC_EQ_KNOT": "nœud avec équations paramétriques",
-	"GET_STARTED_VIDEO": "Commencer!"
+	"GET_STARTED_VIDEO": "Commencer!",
+	"REPORT_ISSUE": "Signaler un problème"
 }

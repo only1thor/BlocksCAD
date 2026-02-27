@@ -221,5 +221,6 @@
 	"EXAMPLE_LOOP_SUN": "Mit Schleife erzeugte Sonne",
 	"EXAMPLE_LOOP_SINE": "Sinus-Funktion mit Schleife",
 	"EXAMPLE_PARAMETRIC_EQ_KNOT": "Kleeblattknoten aus parametrischen Gleichungen",
-	"GET_STARTED_VIDEO": "Erste Schritte!"
+	"GET_STARTED_VIDEO": "Erste Schritte!",
+	"REPORT_ISSUE": "Fehler melden"
 }
