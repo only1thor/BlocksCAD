@@ -221,6 +221,11 @@
 	"EXAMPLE_LOOP_SUN": "Mit Schleife erzeugte Sonne",
 	"EXAMPLE_LOOP_SINE": "Sinus-Funktion mit Schleife",
 	"EXAMPLE_PARAMETRIC_EQ_KNOT": "Kleeblattknoten aus parametrischen Gleichungen",
+	"AXES_BUTTON": "Achsenanzeige umschalten",
+	"DEFAULT_COLOR_BUTTON": "Standard-Renderfarbe setzen",
+	"ZOOM_IN_BUTTON": "Hineinzoomen",
+	"ZOOM_OUT_BUTTON": "Herauszoomen",
+	"ZOOM_RESET_BUTTON": "Ansicht zurücksetzen",
 	"GET_STARTED_VIDEO": "Erste Schritte!",
 	"REPORT_ISSUE": "Fehler melden"
 }

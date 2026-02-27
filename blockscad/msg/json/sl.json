@@ -220,6 +220,11 @@
 	"EXAMPLE_LOOP_SUN": "Sonček ustvarjen z zanko",
 	"EXAMPLE_LOOP_SINE": "Ploščina pod Sinus-Funkcijo prikazna z zanko",
 	"EXAMPLE_PARAMETRIC_EQ_KNOT": "Zančna deteljica iz parametričnih enačb",
+	"AXES_BUTTON": "Preklopi prikaz osi",
+	"DEFAULT_COLOR_BUTTON": "Nastavi privzeto barvo izrisa",
+	"ZOOM_IN_BUTTON": "Približaj",
+	"ZOOM_OUT_BUTTON": "Oddalji",
+	"ZOOM_RESET_BUTTON": "Ponastavi pogled",
 	"GET_STARTED_VIDEO": "Osnove?",
 	"REPORT_ISSUE": "Prijavi napako"
 }
