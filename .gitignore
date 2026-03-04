@@ -6,4 +6,6 @@ closure-library/*
 
 node_modules/*
 
+package-lock.json
+
 test/_test-*
